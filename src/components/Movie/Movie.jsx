@@ -11,23 +11,11 @@ const Movie = props => {
 
     const {poster_path , vote_average, title, id } = props.movie
     const {show_movie_data_by_id, movieDataToggle} = props
-    const [show_movie, setShowMovie] = useState(false)
-    const [show_movie_popup, setShowMoviePopup] = useState(false)
-    
-    useEffect(() => {
-        console.log(poster_path)
-        if(poster_path){
-            setTimeout(()=>{ 
-                setShowMovie(true) }, 500);
-        }
-      }, []);
-
-
-
+    let show = show_movie_data_by_id === id ? true : false
     return (
         <div>
             <div 
-              onClick={()=>setShowMoviePopup(true)}
+              onClick={()=>movieDataToggle(id)}
               className={ "movie__container movie__img__loader"}>
                 <div className="movie__hover">
                     <div className="movie__title">{title}</div>
@@ -38,14 +26,11 @@ const Movie = props => {
 
             </div>
                
-            {show_movie_popup ? 
-            <MoviePopup closePopUp={()=>setShowMoviePopup(false)} data={props.movie} /> 
-            :
-            null}
-
-
+            {/* { show_movie_data_by_id === id ?  */}
+            <MoviePopup show={show} closePopUp={()=>movieDataToggle(id)} data={props.movie} /> 
+            {/* :
+            null} */}
      </div>
-        
     );
 };
 

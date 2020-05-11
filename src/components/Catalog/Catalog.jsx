@@ -49,14 +49,9 @@ const Catalog = props => {
                 setScrollMore(false)
 
             }
-        }
-
-        console.log(movies)
-
-        
+        } 
     }
 
-    console.log(scroll_more)
 
     const movieDataToggle = (id) =>{
         let new_id = id === show_movie_data_by_id ? "" : id
@@ -76,6 +71,9 @@ const Catalog = props => {
             element.classList.remove('disable-hover')
         },1500);
      }
+
+
+     
 
 
    
