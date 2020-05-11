@@ -23,7 +23,6 @@ const Movie = props => {
 
 
 
-    
     return (
         <div>
 

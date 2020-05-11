@@ -4,11 +4,11 @@ const MoviePage = props => {
 
     console.log(window.location.pathname)
 
-    
+
     return (
         <div>
 
-            pageeeeeeeeeeeeeeeeeeeeeed
+            pageeeeeeeeeeeeeeeeeeeeee
             
         </div>
     );
