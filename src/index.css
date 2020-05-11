@@ -65,6 +65,9 @@ input {
 * {
   box-sizing: border-box; }
 
+.disable-hover {
+  pointer-events: none; }
+
 .main__container {
   transition: all .2s;
   height: 100vh;
@@ -113,6 +116,7 @@ nav {
 
 .banner {
   height: 400px;
+  width: 100%;
   background-image: url(https://image.tmdb.org/t/p/original//5BwqwxMEjeFtdknRV792Svo0K1v.jpg); }
 
 .movies__scroll__container {
@@ -140,8 +144,9 @@ nav {
   background-repeat: no-repeat;
   transition: 0.5s; }
   .movie__container .movie__hover {
-    opacity: 1;
+    opacity: 0;
     transition: 0.5s;
+    z-index: 10;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -203,7 +208,14 @@ nav {
   transition: 0.5s; }
 
 .movie__img__loader {
-  background: linear-gradient(#ffffff3a, #ffffff00); }
+  background: linear-gradient(#ffffff3a, #ffffff00);
+  position: relative; }
+  .movie__img__loader img {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px; }
 
 .main__popup__container {
   position: fixed;

@@ -64,25 +64,36 @@ const Catalog = props => {
 
     }
 
+    const onScroll =()=>{
+        var element = document.getElementById("movies-scroll");
+
+        var body = document.body, timer
+        clearTimeout(timer);
+        if(!element.classList.contains('disable-hover')) {
+            element.classList.add('disable-hover')
+        }
+        timer = setTimeout(function(){
+            element.classList.remove('disable-hover')
+        },1500);
+     }
+
+
+   
 
     return (
         <div  className="catalog__container">
             <div className="grid">
                 
-
-                {/* need to add banner component! */}
-                <div className="banner"></div>
-
-                <div className="movies__scroll__container">
+                <div className="movies__scroll__container" onScroll={()=>onScroll()}>
                 <InfiniteScroll
                             className="movies__container"
+                            id="movies-scroll"
                             pageStart={0}
                             loadMore={()=>getMovies()}
                             hasMore={scroll_more}
                             useWindow={false}
-                            // getScrollParent={scrollParentRef}
                         >
-                            
+                             <div className="banner"></div>
                                 {movies.map(movie => {
                                     return <Movie show_movie_data_by_id={show_movie_data_by_id} movieDataToggle={movieDataToggle} movie={movie} />
                                 })}

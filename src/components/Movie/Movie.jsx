@@ -15,6 +15,7 @@ const Movie = props => {
     const [show_movie_popup, setShowMoviePopup] = useState(false)
     
     useEffect(() => {
+        console.log(poster_path)
         if(poster_path){
             setTimeout(()=>{ 
                 setShowMovie(true) }, 500);
@@ -25,25 +26,18 @@ const Movie = props => {
 
     return (
         <div>
-
-             {show_movie ?
-              <Fade >
-                    <div onClick={()=>setShowMoviePopup(true)}
-                    className={ " movie__container"} 
-                    style ={  { backgroundImage: "url("+ORIGINAL_IMG_PATH+poster_path+")" } } >
-
-                        <div className="movie__hover">
-                         <div className="movie__title">{title}</div>
-                        </div>
-
-                    </div>
-               </Fade>
-            :
-               <Fade >
-                    <div className={  "movie__container movie__img__loader" }> </div>
+            <div 
+              onClick={()=>setShowMoviePopup(true)}
+              className={ "movie__container movie__img__loader"}>
+                <div className="movie__hover">
+                    <div className="movie__title">{title}</div>
+                </div>
+                <Fade >
+                    <img src={ORIGINAL_IMG_PATH+poster_path} alt="movie" />
                 </Fade>
-            }
 
+            </div>
+               
             {show_movie_popup ? 
             <MoviePopup closePopUp={()=>setShowMoviePopup(false)} data={props.movie} /> 
             :

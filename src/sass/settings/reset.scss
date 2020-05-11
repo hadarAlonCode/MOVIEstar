@@ -72,8 +72,9 @@ input {
     box-sizing: border-box;
 }
 
-
-
+.disable-hover {
+  pointer-events: none;
+}
 
 
 
