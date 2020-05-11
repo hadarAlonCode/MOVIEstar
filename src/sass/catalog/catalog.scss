@@ -1,0 +1,24 @@
+.catalog__container{
+    margin-top: 60px;
+    height: 100vh;
+}
+
+.banner{
+    height: 400px;
+    // background-color: rgba(153, 84, 84, 0.685);
+    background-image: url(https://image.tmdb.org/t/p/original//5BwqwxMEjeFtdknRV792Svo0K1v.jpg);
+
+}
+
+.movies__scroll__container{
+     width:  100%;
+     height: calc(100vh - 60px);
+     overflow-y: auto;
+     overflow-x: hidden;
+     
+    }
+
+    .movies__container{
+        flex-wrap: wrap;
+        @include displayFlex(row, center, center);
+    }

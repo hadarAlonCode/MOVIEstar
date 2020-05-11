@@ -1,0 +1,22 @@
+nav {
+    height: 60px;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-color: #141414;
+
+
+    .nav__bar{
+
+        height: 100%;
+        @include displayFlex(row, unset, center);
+        padding-left: 20px;
+        li{
+            padding-right: 20px;
+            
+        }
+
+    }
+}

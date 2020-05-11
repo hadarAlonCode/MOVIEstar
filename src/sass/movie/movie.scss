@@ -1,0 +1,119 @@
+
+
+
+
+.movie__container{
+    width: 200px;
+    // box-shadow: rgb(204, 204, 204) 3px 3px 10px 6px;
+    height: 300px;
+    position: relative;
+    background-size: 100% 100%;
+    cursor: pointer;
+    filter: grayscale(0%);
+    border-radius: 5px;
+    margin: 20px;
+    background-repeat: no-repeat;
+    transition: 0.5s;
+
+    .movie__hover{
+        opacity: 1;
+        transition: 0.5s;
+        position: relative;
+        @include displayFlex(column, flex-end, unset );
+        // align-items: flex-start;
+        margin-top: auto;
+        // padding: 10px;
+        height: 100%;
+        width: 100%;
+        overflow-y: hidden;
+        pointer-events: none;
+
+        .movie__title{
+            color: rgb(255, 255, 255);
+            text-align: center;
+            font-weight: bold;
+            // background-color: rgba(255, 255, 255, 0.349);
+            background: linear-gradient( #00000000, #000000c5);
+            width: 100%;
+            padding: 30px;
+            font-size: 20px;;
+            transform: translateY(80%);
+            transition: all .3s;
+            z-index: 0;
+            transform-origin: bottom;
+            
+        }
+        
+        i{
+            color: #e9bb32bb;
+            font-size: 38px;
+            position: relative;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+
+        .vote_average{
+            position: absolute;
+            top: 13px;
+            color: black;
+            font-size: 14px;
+            left: 17px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+    }
+
+    &:hover {
+        width: 250px;
+        height: 350px;
+        transition: 0.5;
+
+        .movie__hover {
+            transition: 0.5s;
+            opacity: 1;
+
+            .movie__title{
+               
+                
+                object-position: top;
+                transform: translateY(0);
+                transition: all .3s;
+               
+                transform-origin: bottom;
+            }
+            
+            
+        } 
+    } 
+}
+
+.selected__movie{
+    width: 90vw;
+    // box-shadow: rgb(204, 204, 204) 3px 3px 10px 6px;
+    height: 300px;
+    position: relative;
+    background-size: 100% 100%;
+    cursor: pointer;
+    filter: grayscale(0%);
+    border-radius: 5px;
+    margin: 20px;
+    background-repeat: no-repeat;
+    transition: 0.5s;
+
+    &:hover{
+
+    }
+}
+
+
+
+
+
+.movie__img__loader{
+    background: linear-gradient(#ffffff3a, #ffffff00);
+    
+  
+   
+}
+
+

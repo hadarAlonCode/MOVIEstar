@@ -1,0 +1,110 @@
+.main__popup__container{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    z-index: 1000;
+   
+    transition: 0.2s all;
+    @include displayFlex(row, center, center );
+
+    //class-not-active:
+    // opacity: 0;
+    // pointer-events: none;
+
+    //class - active:
+    opacity: 1;
+    pointer-events: all;
+
+    @include mediaMaxWidth(1000px){
+       width: 100vw;
+       padding-bottom: 20px;
+    }
+
+    .overlay{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        background: rgba(0, 0, 0, 0.465);
+        
+    }
+}
+
+.main__popup__inner__container{
+    border-radius: 5px;
+    margin-top: 200px;
+    box-shadow: 0 10px 35px 0 rgba(0, 0, 0, 0.8);
+    background-color: #ffffff;
+    min-width: 200px;
+    height: max-content;
+    padding-top: 30px;
+    // padding-bottom: 30px;
+    z-index: 1000;
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    // padding: 20px;
+
+    @include mediaMaxWidth(500px){
+       width: 300px;
+       margin-top: 35px;
+    }
+
+    h2{
+        font-weight: bold;
+    }
+}
+
+
+.movie__popup{
+    width: 500px;
+    // box-shadow: rgb(204, 204, 204) 3px 3px 10px 6px;
+    height: 700px;
+    position: relative;
+    background-size: 100% 100%;
+    border-radius: 5px;
+    margin: 20px;
+    background-repeat: no-repeat;
+    transition: 0.5s;
+}
+
+.movie__overview{
+    padding: 10px;
+    background: linear-gradient(to right, black, rgba(255, 255, 255, 0));
+    color: rgb(255, 255, 255);
+    // border-radius: 10px;
+    font-weight: 500;
+    @include displayFlex(column, center , center);
+
+    padding-bottom: 50px;
+    padding-top: 50px;
+    .title{
+        font-weight: bold;
+        font-size: 25px;
+        padding-bottom: 10px;
+    }
+
+    .icons{
+        padding-top: 20px;
+        width: 100%;
+        font-size: 40px;
+        i{
+            margin-left: 20px;
+            cursor: pointer;
+        }
+    }
+
+    .stars__container{
+        font-size: 33px;
+        padding-bottom: 25px;
+        img{
+            margin: 2px;
+        }
+    }
+
+   
+
+}
