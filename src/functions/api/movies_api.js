@@ -24,6 +24,23 @@ export const getMoviesApi = (page) => new Promise(resolve => {
 
 
 
+export const getTopRatedApi = () => new Promise(resolve => {
+   
+    axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${MOVIE_API_KEY}&language=en-US&page=1`,  ).then(res => {
+        
+        const {
+            results
+        } = res.data
+        const output = {
+            ok: true, 
+            result: results
+        }
+        resolve(output)
+    }).catch(err => {
+        resolve({ ok: false })
+    })
+})
+
 
 export const getMovieByIdApi = (id) => new Promise(resolve => {
    

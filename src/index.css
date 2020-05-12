@@ -65,6 +65,20 @@ input {
 * {
   box-sizing: border-box; }
 
+@keyframes underline {
+  from {
+    width: 0px; }
+  to {
+    width: 120px; } }
+
+.title__underline {
+  width: 120px;
+  height: 3px;
+  background-color: white;
+  animation-name: underline;
+  animation-duration: 4s;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.603); }
+
 .disable-hover {
   pointer-events: none; }
 
@@ -230,16 +244,14 @@ nav {
   flex-direction: row;
   justify-content: center;
   align-items: center; }
-  @media screen and (max-width: 1000px) {
-    .main__popup__container {
-      width: 100vw;
-      height: max-content; } }
   .main__popup__container .exit__popup {
     position: absolute;
     top: 23px;
     right: 23px;
     cursor: pointer;
     font-size: 30px; }
+  .main__popup__container .top__rated__icon {
+    display: none; }
 
 .popup--off {
   pointer-events: none;
@@ -263,12 +275,9 @@ nav {
   background-size: cover;
   background-repeat: no-repeat;
   transition: 0.5s; }
-  @media screen and (max-width: 1000px) {
-    .movie__popup {
-      height: max-content; } }
 
 .movie__overview {
-  padding: 25px;
+  padding: 41px;
   width: 100%;
   height: 100%;
   background: linear-gradient(to right, black, rgba(255, 255, 255, 0));
@@ -285,7 +294,8 @@ nav {
       justify-content: space-between;
       align-items: unset; } }
   .movie__overview .movie__overview__detailes {
-    width: 400px; }
+    width: 400px;
+    z-index: 100; }
     .movie__overview .movie__overview__detailes .title {
       font-weight: bold;
       font-size: 25px;
@@ -305,27 +315,82 @@ nav {
         height: 20px;
         width: 20px; }
 
-.movie__page__container .main__popup__container {
-  position: unset;
-  margin-top: 60px; }
+.main__banner .main__popup__container {
+  position: unset; }
 
-.movie__page__container .trailer {
-  transform: scale(1.4);
-  padding-right: 85px; }
+.main__banner .top__rated__icon {
+  display: block;
+  position: absolute;
+  right: 20px;
+  top: 25px;
+  height: 150px;
+  transform: rotate(20deg);
+  width: 150px; }
+
+.movie__page__container {
+  padding-bottom: 50px; }
+  .movie__page__container .main__popup__container {
+    position: unset;
+    margin-top: 60px; }
+    @media screen and (max-width: 1000px) {
+      .movie__page__container .main__popup__container {
+        width: 100vw;
+        height: max-content; } }
   @media screen and (max-width: 1000px) {
-    .movie__page__container .trailer {
-      padding: 25px;
-      transform: scale(1);
-      padding-left: 0px; } }
-
-.movie__page__container .movie__overview__sub__detailes {
-  display: flex;
-  flex-direction: row;
-  justify-content: unset;
-  align-items: center;
-  width: 100%; }
-  .movie__page__container .movie__overview__sub__detailes div {
-    padding-right: 10px; }
+    .movie__page__container .movie__popup {
+      height: max-content; } }
+  .movie__page__container .trailer {
+    padding-right: 70px;
+    width: calc(80vw - 400px);
+    height: 100%; }
+    @media screen and (max-width: 1000px) {
+      .movie__page__container .trailer {
+        width: 90vw;
+        margin: auto;
+        padding-right: 0px;
+        padding-top: 20px;
+        height: 300px; } }
+  .movie__page__container .movie__overview__sub__detailes {
+    display: flex;
+    flex-direction: row;
+    justify-content: unset;
+    align-items: center;
+    width: 100%; }
+    .movie__page__container .movie__overview__sub__detailes div {
+      padding-right: 10px; }
 
 .slider__container {
   margin-top: 60px; }
+  .slider__container .slider__title__container {
+    padding-left: 41px;
+    margin-bottom: 5px; }
+    .slider__container .slider__title__container h2 {
+      margin-bottom: 5px;
+      font-size: 35px; }
+  .slider__container button {
+    border: unset;
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.452);
+    font-size: 30px;
+    transition: 0.5s; }
+    .slider__container button i:hover {
+      color: white;
+      transition: 0.5s; }
+
+.slider__item {
+  height: 100px;
+  margin: auto;
+  font-size: 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center; }
+  .slider__item div {
+    padding-top: 5px; }
+  .slider__item .slider__img__container {
+    height: 100px;
+    width: 100px;
+    background-image: url(https://image.tmdb.org/t/p/original//mmZVSaTaSX2yW6q08LAj9E1BpkQ.jpg);
+    background-size: cover;
+    border-radius: 50%; }

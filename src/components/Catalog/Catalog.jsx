@@ -1,12 +1,16 @@
+// @ts-nocheck
 import React, {useState , useEffect} from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
 import Movie from '../Movie/Movie';
-import {getMoviesApi} from '../../functions/api/movies_api'
+import {getMoviesApi, getTopRatedApi} from '../../functions/api/movies_api'
+import MoviePopup from '../MoviePopup/MoviePopup';
 
 const Catalog = props => {
 
     const [scroll_more, setScrollMore] = useState(false)
     const [movies, setMovies] = useState([])
+    const [top_rated_movies, setTopRatedMovies] = useState([])
+
     const [page, setPage] = useState(1)
     const [show_movie_data_by_id, setShowMovieDataId] = useState("")
 
@@ -14,8 +18,22 @@ const Catalog = props => {
     useEffect(() => {
         console.log('useEffect')
         getMoviesFirstTime()
+        getTopRated()
         
       }, []);
+
+
+
+      const getTopRated = async ()=>{
+        console.log('getTopRated')
+        let movies_res = await getTopRatedApi()
+
+        if(movies_res.ok &&  movies_res.result.length > 0){
+            console.log(movies_res.result)
+            setTopRatedMovies(movies_res.result)      
+        }
+
+    }
 
 
     const getMoviesFirstTime= async ()=>{
@@ -91,7 +109,19 @@ const Catalog = props => {
                             hasMore={scroll_more}
                             useWindow={false}
                         >
-                             <div className="banner"></div>
+
+                             {/* <div className="banner"></div> */}
+                            {top_rated_movies.length > 0 ? 
+                            <div className="main__banner">
+                            <MoviePopup 
+                           
+                            isMainBanner={true} show={  true } data={top_rated_movies[0]} />
+                            </div>
+                            : null
+                            }
+                            
+                             
+
                                 {movies.map(movie => {
                                     return <Movie show_movie_data_by_id={show_movie_data_by_id} movieDataToggle={movieDataToggle} movie={movie} />
                                 })}

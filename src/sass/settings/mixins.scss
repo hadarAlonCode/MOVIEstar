@@ -16,6 +16,10 @@ background: linear-gradient(to right, #23074d, #cc5333); /* W3C, IE 10+/ Edge, F
     box-shadow: 0 0 10px rgba(0,0,0,0.6);
 }
 
+@mixin shadow-white {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.603);
+}
+
 
 @mixin oneLinerTextDots(){
     width:100%;

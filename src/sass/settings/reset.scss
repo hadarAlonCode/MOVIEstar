@@ -72,6 +72,23 @@ input {
     box-sizing: border-box;
 }
 
+@keyframes underline {
+  from {width:0px;}
+  to {width: 120px;}
+}
+
+
+
+.title__underline{
+    width: 120px;
+    height: 3px;
+    background-color: white;
+    animation-name: underline;
+    animation-duration: 4s;
+    @include shadow-white()
+    
+  }
+
 .disable-hover {
   pointer-events: none;
 }

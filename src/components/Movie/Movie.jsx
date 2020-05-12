@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React , {useState, useEffect} from 'react';
 import {ORIGINAL_IMG_PATH} from '../../tools/routes'
 import Fade from 'react-reveal/Fade';
