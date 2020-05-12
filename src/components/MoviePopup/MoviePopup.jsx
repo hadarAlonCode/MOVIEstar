@@ -71,7 +71,7 @@ const MoviePopup = props => {
 
     return (
         
-            <div className={show ? "main__popup__container" : "popup--off main__popup__container" }>
+            <div id={isMainBanner ? "main__popup__banner" : null } className={show ? "main__popup__container"   : "popup--off main__popup__container" }>
                 <Slide top when={show} >
                     <div className="main__popup__inner__container movie__popup"
                          style ={  { backgroundImage: "url("+ORIGINAL_IMG_PATH+backdrop_path+")" } } >

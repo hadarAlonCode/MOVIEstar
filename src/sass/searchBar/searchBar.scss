@@ -38,10 +38,12 @@
         width: 0px;
         margin-left: 10px;
         transition: 0.4s;
+        opacity: 0;
     }
 
     .top__bar__input--off{
         width: 0px;
+        opacity: 0;
         transition: 0.4s;
         pointer-events: none;
 
@@ -51,6 +53,7 @@
         width: 200px;
         transition: 0.4s;
         pointer-events: all;
+        opacity: 1;
         
         
     }
