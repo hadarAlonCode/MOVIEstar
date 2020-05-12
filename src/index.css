@@ -353,7 +353,8 @@ nav {
       justify-content: space-between;
       align-items: unset;
       padding: 20px;
-      font-size: 12px; } }
+      font-size: 12px;
+      padding-top: 60px; } }
   .movie__overview .movie__overview__detailes {
     width: 400px;
     z-index: 100; }
