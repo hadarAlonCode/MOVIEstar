@@ -2,8 +2,10 @@
 import React, {useState , useEffect} from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
 import Movie from '../Movie/Movie';
-import {getMoviesApi, getTopRatedApi} from '../../functions/api/movies_api'
+import {getMoviesApi, getTopRatedApi, getMoviesSearch} from '../../functions/api/movies_api'
 import MoviePopup from '../MoviePopup/MoviePopup';
+import Footer from '../Footer/Footer';
+import SearchBar from '../SearchBar/SearchBar';
 
 const Catalog = props => {
 
@@ -13,6 +15,9 @@ const Catalog = props => {
 
     const [page, setPage] = useState(1)
     const [show_movie_data_by_id, setShowMovieDataId] = useState("")
+
+    const [search_toggle, setSearchToggle] = useState(false)
+    const [search_keyword, setSearchKeyword] = useState("")
 
 
     useEffect(() => {
@@ -27,6 +32,7 @@ const Catalog = props => {
       const getTopRated = async ()=>{
         console.log('getTopRated')
         let movies_res = await getTopRatedApi()
+        
 
         if(movies_res.ok &&  movies_res.result.length > 0){
             console.log(movies_res.result)
@@ -38,6 +44,8 @@ const Catalog = props => {
 
     const getMoviesFirstTime= async ()=>{
         console.log('getMoviesFirstTime')
+        setSearchToggle(false)
+        setMovies([])
         let movies_res = await getMoviesApi(1)
 
         if(movies_res.ok &&  movies_res.result.length > 0){
@@ -52,10 +60,16 @@ const Catalog = props => {
 
 
     const getMovies = async ()=>{
-        console.log("getMovies")
+        console.log(search_keyword ,"getMovies")
         setScrollMore(false)
 
-        let movies_res = await getMoviesApi(page)
+        let movies_res
+
+        if(search_toggle){
+            movies_res = await getMoviesSearch(search_keyword, page)
+        }else{
+            movies_res = await getMoviesApi(page)
+        }
         
         if(movies_res.ok &&  movies_res.result.length > 0){
             let copy_movies = JSON.parse(JSON.stringify(movies))
@@ -93,12 +107,27 @@ const Catalog = props => {
 
      
 
+     const searchMovie = async (keyword)=>{
+        setMovies([])
+        let movies_res = await getMoviesSearch(keyword, 1)
+      
+        console.log(movies_res)
+        if (movies_res.ok) {
+            
+            setMovies(movies_res.result)
+            setPage(2)
+            setSearchToggle(true)
+        }
+     }
+
 
    
 
     return (
         <div  className="catalog__container">
             <div className="grid">
+
+                
                 
                 <div className="movies__scroll__container" onScroll={()=>onScroll()}>
                 <InfiniteScroll
@@ -110,23 +139,28 @@ const Catalog = props => {
                             useWindow={false}
                         >
 
-                             {/* <div className="banner"></div> */}
+                            {/* main banner */}
                             {top_rated_movies.length > 0 ? 
-                            <div className="main__banner">
-                            <MoviePopup 
-                           
-                            isMainBanner={true} show={  true } data={top_rated_movies[0]} />
-                            </div>
+                                <div className="main__banner">
+                                     <MoviePopup isMainBanner={true} show={  true } data={top_rated_movies[0]} />
+                                </div>
                             : null
                             }
-                            
-                             
 
+                            {/* search bar */}
+
+                            <SearchBar getMoviesFirstTime={getMoviesFirstTime} searchMovie={searchMovie} setSearchKeyword={setSearchKeyword} />
+
+
+                            {/* movies */}
+                            
                                 {movies.map(movie => {
                                     return <Movie show_movie_data_by_id={show_movie_data_by_id} movieDataToggle={movieDataToggle} movie={movie} />
                                 })}
+
+               
                                  
-                 </InfiniteScroll>
+                </InfiniteScroll>
 
                 </div>
 
@@ -136,6 +170,7 @@ const Catalog = props => {
 
       
             </div>
+            <Footer />
         </div>
     );
 };

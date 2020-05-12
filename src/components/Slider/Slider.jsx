@@ -70,7 +70,8 @@ const Slider = props => {
              <div className="slider__title__container">
              <Fade left opposite cascade collapse > <h2>{title}</h2></Fade> 
              <Fade left opposite cascade collapse delay={1000}>
-                    <div className="title__underline"></div> </Fade>  
+                    <div className="title__underline"></div> 
+              </Fade>  
             </div>
            
         <div  style={{ padding: `0 ${chevronWidth}px` }}>

@@ -1,12 +1,10 @@
-import React , {useEffect} from 'react';
+import React , {useEffect, useState} from 'react';
 import Fade from 'react-reveal/Fade';
 import Zoom from 'react-reveal/Zoom';
 import Flip from 'react-reveal/Flip';
 import Slide from 'react-reveal/Slide';
 import { ORIGINAL_IMG_PATH } from '../../tools/routes';
-import { withRouter } from "react-router-dom";
-import { connect } from "react-redux";
-import * as actions from '../../actions/actions';
+
 import star from "../../images/star_w.png"
 import star_g from "../../images/star_g.png"
 import top_rated from "../../images/topp.png"
@@ -17,13 +15,59 @@ import * as moment from 'moment';
 
 
 const MoviePopup = props => {
-    const { closePopUp, data ,show ,trailer , isMoviePage , isMainBanner} = props
-    console.log(data)
+    const { closePopUp, data ,show ,trailer , isMoviePage , isMainBanner , addMovieToFavirites } = props
 
     const { release_date ,backdrop_path, overview , title , vote_average , id ,adult , genres}  = data
-    console.log(trailer)
+    const [favorite, setFavorite] = useState([])
 
-   
+
+    // localStorage.removeItem('blockBaster_favorites')
+
+    useEffect(() => {
+
+        let favorites_storage = localStorage.blockBaster_favorites  ? 
+        JSON.parse(localStorage.blockBaster_favorites) ? 
+        JSON.parse(localStorage.blockBaster_favorites) : 
+        [] : 
+        []
+
+          if(JSON.stringify(favorite) !== JSON.stringify(favorites_storage)){
+            setFavorite(favorites_storage)
+          }
+
+      });
+
+
+
+    const addToFavoriteStorage = (data)=>{
+        let stored_favorites = JSON.parse(localStorage.getItem("blockBaster_favorites"));
+        
+        let favorites = []
+        if(stored_favorites){
+            favorites = stored_favorites
+        }
+      
+        favorites.push(data)
+        localStorage.setItem("blockBaster_favorites", JSON.stringify(favorites));
+        setFavorite(favorites)
+
+    }
+
+
+
+    const removeFromFavoriteStorage = (data)=>{
+        let stored_favorites = JSON.parse(localStorage.getItem("blockBaster_favorites"));
+        
+        let favorites = []
+        if(stored_favorites){
+            favorites = stored_favorites
+        }
+      
+        favorites = favorites.filter(m=> m.id !== data.id)
+        localStorage.setItem("blockBaster_favorites", JSON.stringify(favorites));
+        setFavorite(favorites)
+
+    }
 
     return (
         
@@ -57,7 +101,6 @@ const MoviePopup = props => {
                                         </div>
                                     : null}
 
-
                                 <div className="stars__container">
                                     {show ? 
                                         [1,2,3,4,5,6,7,8,9,10].map(num => {
@@ -73,8 +116,26 @@ const MoviePopup = props => {
 
                                 <div className="overview">{overview}</div>
                                 <div className="icons">
-                                <i className="fab fa-gratipay"></i>
-                                    {isMoviePage ? null : <Link to= {`/movie/${id}`}><i className="fas fa-info-circle"></i></Link> }
+                                {/* favorites_storage.includes(id) */}
+                                {favorite.find(m=>m.id===id) ?
+                                    <button 
+                                    onClick={()=>removeFromFavoriteStorage(data)} 
+                                        className="btn">
+                                        My list <i className="fas fa-check"></i>
+                                    </button>
+
+                                    :
+                                                              
+                                    <button 
+                                    onClick={()=>addToFavoriteStorage(data)} 
+                                    className="btn">
+                                        My list <i className="fas fa-plus"></i>
+                                    </button>
+                                }
+                                
+
+
+                                    {isMoviePage ? null : <Link to= {`/movie/${id}`}><button className="btn"> More info<i className="fas fa-info-circle"></i></button></Link> }
                                 </div>
                             </div>
 
@@ -115,9 +176,7 @@ const MoviePopup = props => {
 };
 
 
+export default MoviePopup;
 
-function mapStateToProps({ movie_reducer}) {
-    return { movie_reducer };
-  }
-  
-export default withRouter(connect(mapStateToProps, actions)(MoviePopup))
+
+

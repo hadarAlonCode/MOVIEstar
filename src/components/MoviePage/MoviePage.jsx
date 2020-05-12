@@ -3,6 +3,7 @@ import React , {useState, useEffect} from 'react';
 import { getMovieByIdApi,  getMovieDataApi } from '../../functions/api/movies_api';
 import MoviePopup from '../MoviePopup/MoviePopup';
 import Slider from '../Slider/Slider';
+import Footer from '../Footer/Footer';
 
 const MoviePage = props => {
 
@@ -63,7 +64,7 @@ const MoviePage = props => {
                     <Slider title={"CREW"} slider_data={movie_crew} defult_pic={movie_data.poster_path} /> 
             : null }
 
-            
+        <Footer />
         </div>
     );
 };

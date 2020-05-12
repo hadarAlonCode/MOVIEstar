@@ -1,0 +1,60 @@
+.searchbar__container{
+    
+    @include displayFlex(row, unset , center);
+    padding: 20px;
+    position: fixed;
+    
+    top: -5px;
+    left: 126px;
+    z-index: 10000;
+
+    @include mediaMaxWidth(501px){
+        
+        top: 50px;
+        left: 0px;
+    }
+
+    .search__icon{
+        font-weight: 900;
+        font-size: 24px;
+        border-radius: 50%;
+        cursor: pointer;
+       
+
+        @include mediaMaxWidth(501px){
+            padding: 8px;
+            background-color: #ff0000;
+           
+        }
+    }
+
+
+    input{
+        color: black;
+        height: 30px;
+        border-radius: 25px;
+        border: unset;
+        text-indent: 10px;
+        width: 0px;
+        margin-left: 10px;
+        transition: 0.4s;
+    }
+
+    .top__bar__input--off{
+        width: 0px;
+        transition: 0.4s;
+        pointer-events: none;
+
+    }
+
+    .top__bar__input--active{
+        width: 200px;
+        transition: 0.4s;
+        pointer-events: all;
+        
+        
+    }
+
+
+
+}

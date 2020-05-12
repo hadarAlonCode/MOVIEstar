@@ -1,0 +1,25 @@
+.favorites__container{
+    padding-top: 60px;
+    height: calc(100vh - 70px);
+}
+
+.favorites__movies__container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 90vw;
+    justify-content: center;
+    margin: auto;
+    height: max-content;
+    min-height: 100vh;
+
+    .flex__mov{
+        height: max-content;
+    }
+}
+
+.favorites__msg{
+    padding: 20px;
+    img{
+        width: 450px;
+    }
+}

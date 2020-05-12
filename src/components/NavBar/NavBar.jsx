@@ -7,7 +7,7 @@ const NavBar = props => {
         <nav>
             <ul className="nav__bar grid">
                  <Link to= {`/`}><li ><img className='top__rated__icon'  src={logo} alt="logo" width="100px"  /></li></Link> 
-                <li>FAVORITES</li>      
+                 <Link to= {`/favorites`}><li className="btn nav__btn">My List</li> </Link> 
             </ul>
         </nav>
     );

@@ -1,8 +1,8 @@
-import { SHOW_MOVIE_DATA } from './types'
+import { ADD_TO_FAVORITES } from './types'
 
-export const toggleMovieData = (data) => async dispatch => {
+export const addMovieToFavirites = (id) => async dispatch => {
     dispatch({
-        type: SHOW_MOVIE_DATA,
-        payload: data
+        type: ADD_TO_FAVORITES,
+        payload: id
     })
 }

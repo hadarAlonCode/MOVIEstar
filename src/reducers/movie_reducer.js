@@ -1,10 +1,10 @@
 import {
-    SHOW_MOVIE_DATA
+    ADD_TO_FAVORITES
 } from '../actions/types'
 
 const initialState = {
     movie_id: "",
-    show_movie_data: false,
+    favorites: []
 }
 
 
@@ -12,15 +12,13 @@ export default function (state = initialState, action) {
 
     switch (action.type) {
 
-        case SHOW_MOVIE_DATA:
-            const { id } = action.payload
-            console.log(state.movie_id ,"SHOW_MOVIE_DATA");
+        case ADD_TO_FAVORITES:
+            // const { id } = action.payload
+            console.log("ADD_TO_FAVORITES");
             
-            let show_movie_data =  id === state.movie_id ? false : true
             return {
                 ...state,
-                movie_id: id,
-                show_movie_data,
+                favorites: [...state.favorites , action.payload],
 
             }
         default:

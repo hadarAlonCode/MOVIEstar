@@ -85,7 +85,8 @@ input {
 .main__container {
   transition: all .2s;
   height: 100vh;
-  color: #fff; }
+  color: #fff;
+  position: relative; }
 
 .grid {
   width: 100vw;
@@ -106,6 +107,44 @@ input {
   border-radius: 20px; }
 
 /* Handle on hover */
+a {
+  text-decoration: none;
+  color: inherit; }
+
+.btn {
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif !important;
+  border: none;
+  background: linear-gradient(to right, #000000d3, #ff0000ef);
+  color: white;
+  padding: 7px;
+  font-weight: 500;
+  border-radius: 3px;
+  opacity: 1;
+  margin-right: 10px;
+  transition: 0.5s;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; }
+  .btn i {
+    font-size: 15px; }
+
+.btn:hover {
+  background: linear-gradient(to right, #000000f1, #69666667);
+  background-color: rgba(105, 104, 104, 0.726);
+  transition: 0.5s; }
+
+.slider__title__container {
+  padding-left: 41px;
+  margin-bottom: 5px; }
+  .slider__title__container h2 {
+    margin-bottom: 5px;
+    font-size: 35px; }
+  .slider__title__container h1 {
+    margin-bottom: 5px;
+    font-size: 35px; }
+
 nav {
   height: 60px;
   position: fixed;
@@ -118,11 +157,14 @@ nav {
     height: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: unset;
+    justify-content: space-between;
     align-items: center;
     padding-left: 20px; }
     nav .nav__bar li {
-      padding-right: 20px; }
+      margin-right: 20px; }
+  nav .nav__btn {
+    margin-right: 20px;
+    border: 1px solid white; }
 
 .catalog__container {
   margin-top: 60px;
@@ -292,10 +334,25 @@ nav {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      align-items: unset; } }
+      align-items: unset;
+      padding-top: 55px; } }
+  @media screen and (max-width: 500px) {
+    .movie__overview {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: unset;
+      padding: 20px;
+      font-size: 12px; } }
   .movie__overview .movie__overview__detailes {
     width: 400px;
     z-index: 100; }
+    @media screen and (max-width: 500px) {
+      .movie__overview .movie__overview__detailes {
+        width: 300px; } }
+    @media screen and (max-width: 321px) {
+      .movie__overview .movie__overview__detailes {
+        width: 260px; } }
     .movie__overview .movie__overview__detailes .title {
       font-weight: bold;
       font-size: 25px;
@@ -303,7 +360,8 @@ nav {
     .movie__overview .movie__overview__detailes .icons {
       padding-top: 20px;
       width: 100%;
-      font-size: 40px; }
+      font-size: 40px;
+      display: flex; }
       .movie__overview .movie__overview__detailes .icons i {
         margin-left: 20px;
         cursor: pointer; }
@@ -326,9 +384,16 @@ nav {
   height: 150px;
   transform: rotate(20deg);
   width: 150px; }
+  @media screen and (max-width: 600px) {
+    .main__banner .top__rated__icon {
+      right: 7px;
+      top: 7px;
+      height: 50px;
+      transform: rotate(0deg);
+      width: 50px; } }
 
 .movie__page__container {
-  padding-bottom: 50px; }
+  min-height: 100vh; }
   .movie__page__container .main__popup__container {
     position: unset;
     margin-top: 60px; }
@@ -360,13 +425,8 @@ nav {
       padding-right: 10px; }
 
 .slider__container {
-  margin-top: 60px; }
-  .slider__container .slider__title__container {
-    padding-left: 41px;
-    margin-bottom: 5px; }
-    .slider__container .slider__title__container h2 {
-      margin-bottom: 5px;
-      font-size: 35px; }
+  margin-top: 30px;
+  margin-bottom: 40px; }
   .slider__container button {
     border: unset;
     background-color: transparent;
@@ -394,3 +454,78 @@ nav {
     background-image: url(https://image.tmdb.org/t/p/original//mmZVSaTaSX2yW6q08LAj9E1BpkQ.jpg);
     background-size: cover;
     border-radius: 50%; }
+
+.favorites__container {
+  padding-top: 60px;
+  height: calc(100vh - 70px); }
+
+.favorites__movies__container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90vw;
+  justify-content: center;
+  margin: auto;
+  height: max-content;
+  min-height: 100vh; }
+  .favorites__movies__container .flex__mov {
+    height: max-content; }
+
+.favorites__msg {
+  padding: 20px; }
+  .favorites__msg img {
+    width: 450px; }
+
+.footer__container {
+  height: 70px;
+  background-color: #212020;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  margin-bottom: auto;
+  position: relative;
+  bottom: 0; }
+  .footer__container img {
+    width: 50px; }
+
+.searchbar__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: unset;
+  align-items: center;
+  padding: 20px;
+  position: fixed;
+  top: -5px;
+  left: 126px;
+  z-index: 10000; }
+  @media screen and (max-width: 501px) {
+    .searchbar__container {
+      top: 50px;
+      left: 0px; } }
+  .searchbar__container .search__icon {
+    font-weight: 900;
+    font-size: 24px;
+    border-radius: 50%;
+    cursor: pointer; }
+    @media screen and (max-width: 501px) {
+      .searchbar__container .search__icon {
+        padding: 8px;
+        background-color: #ff0000; } }
+  .searchbar__container input {
+    color: black;
+    height: 30px;
+    border-radius: 25px;
+    border: unset;
+    text-indent: 10px;
+    width: 0px;
+    margin-left: 10px;
+    transition: 0.4s; }
+  .searchbar__container .top__bar__input--off {
+    width: 0px;
+    transition: 0.4s;
+    pointer-events: none; }
+  .searchbar__container .top__bar__input--active {
+    width: 200px;
+    transition: 0.4s;
+    pointer-events: all; }

@@ -1,2 +1,2 @@
-export const SHOW_MOVIE_DATA = "SHOW_MOVIE_DATA"
+export const ADD_TO_FAVORITES = "ADD_TO_FAVORITES"
 

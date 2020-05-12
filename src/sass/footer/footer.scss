@@ -1,0 +1,13 @@
+.footer__container{
+    height: 70px;
+    background-color: #212020;
+    @include displayFlex(row, center, center);
+    width: 100vw;
+    margin-bottom: auto;
+    position: relative;
+    bottom: 0;
+    img{
+        width: 50px;
+    }
+
+}

@@ -7,6 +7,7 @@ import MoviePopup from '../MoviePopup/MoviePopup';
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from '../../actions/actions';
+import movie_icon from "../../images/movie.png"
 
 const Movie = props => {
 
@@ -24,7 +25,11 @@ const Movie = props => {
                     <div className="movie__title">{title}</div>
                 </div>
                 <Fade >
-                    <img src={ORIGINAL_IMG_PATH+poster_path} alt="movie" />
+                    {poster_path ?
+                       <img src={ORIGINAL_IMG_PATH+poster_path} alt="movie" />
+                        :
+                        <img src={movie_icon} alt="movie" />
+                    }
                 </Fade>
 
             </div>

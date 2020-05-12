@@ -11,12 +11,20 @@ nav {
     .nav__bar{
 
         height: 100%;
-        @include displayFlex(row, unset, center);
+        @include displayFlex(row, space-between, center);
         padding-left: 20px;
+        
         li{
-            padding-right: 20px;
-            
+            margin-right: 20px;
         }
 
     }
+
+    .nav__btn{
+        margin-right: 20px;
+        border: 1px solid white
+   
+    }
+
+    
 }

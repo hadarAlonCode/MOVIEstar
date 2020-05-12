@@ -4,7 +4,6 @@ import axios from 'axios'
 
 
 
-//475557 joker id
 export const getMoviesApi = (page) => new Promise(resolve => {
    
     axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${MOVIE_API_KEY}&language=en-US&page=${page}`,  ).then(res => {
@@ -22,6 +21,25 @@ export const getMoviesApi = (page) => new Promise(resolve => {
     })
 })
 
+
+
+export const getMoviesSearch = (keyword,page) => new Promise(resolve => {
+   
+    axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${MOVIE_API_KEY}&language=en-US&page=${page}&query=${keyword}&&include_adult=true
+    `,  ).then(res => {
+        
+        const {
+            results
+        } = res.data
+        const output = {
+            ok: true, 
+            result: results
+        }
+        resolve(output)
+    }).catch(err => {
+        resolve({ ok: false })
+    })
+})
 
 
 export const getTopRatedApi = () => new Promise(resolve => {
