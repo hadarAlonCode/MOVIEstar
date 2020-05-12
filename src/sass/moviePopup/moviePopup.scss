@@ -13,13 +13,15 @@
 
     @include mediaMaxWidth(1000px){
        width: 100vw;
-       
+       height: max-content;
     }
+
+    
 
     .exit__popup{
         position: absolute;
-        top: 25px;
-        right: 30px;
+        top: 23px;
+        right: 23px;
         cursor: pointer;
         font-size: 30px;
     }
@@ -32,75 +34,104 @@
 }
 
 .main__popup__inner__container{
-    border-radius: 5px;
     box-shadow: 0 10px 35px 0 rgba(0, 0, 0, 0.849);
     min-width: 200px;
     height: max-content;
-    padding-top: 30px;
+    @include displayFlex(row, unset, center );
     z-index: 1000;
-    display: flex;
-    align-items: flex-end;
     position: relative;
-
-    // @include mediaMaxWidth(500px){
-    //    width: 300px;
-    //    margin-top: 35px;
-    // }
-
-    
 }
-
 
 .movie__popup{
     width: 100vw;
     height: 400px;
     position: relative;
     background-size: cover;
-    border-radius: 5px;
+    // border-radius: 5px;
     background-repeat: no-repeat;
     transition: 0.5s;
+
+    @include mediaMaxWidth(1000px){
+        height: max-content;
+     }
 }
 
 .movie__overview{
     
-    padding: 10px;
-    width: 500px;
-    height: 400px;
+    padding: 25px;
+    width: 100%;
+    height: 100%;
     background: linear-gradient(to right, black, rgba(255, 255, 255, 0));
     color: white;
     font-weight: 500;
-    @include displayFlex(column, center , unset);
+    @include displayFlex(row, space-between , center);
+    
+    @include mediaMaxWidth(1000px){
+       @include displayFlex(column, space-between , unset);
 
-    padding-bottom: 20px;
-    padding-top: 2px;
-
-    .title{
-        font-weight: bold;
-        font-size: 25px;
-        padding-bottom: 10px;
     }
 
-    .icons{
-        padding-top: 20px;
-        width: 100%;
-        font-size: 40px;
-        i{
-            margin-left: 20px;
-            cursor: pointer;
+
+    .movie__overview__detailes{
+        width: 400px;
+        .title{
+            font-weight: bold;
+            font-size: 25px;
+            padding-bottom: 10px;
+        }
+    
+        .icons{
+            padding-top: 20px;
+            width: 100%;
+            font-size: 40px;
+            i{
+                margin-left: 20px;
+                cursor: pointer;
+            }
+        }
+    
+        .stars__container{
+            padding-bottom: 10px; padding-top: 5px;
+            img{
+                margin: 4px;
+                height: 20px;
+                width: 20px;               
+            }
         }
     }
-
-    .stars__container{
-        padding-bottom: 10px;
-        img{
-            margin: 4px;
-            height: 20px;
-            width: 20px;
-            // transform: scale(0.5);
-            
-        }
-    }
-
-   
-
 }
+
+
+
+
+//movie page 
+.movie__page__container{
+
+    .main__popup__container{
+       position: unset;
+       margin-top: 60px;
+    }
+
+    .trailer{
+        transform: scale(1.4);
+        padding-right: 85px;
+     
+    
+        @include mediaMaxWidth(1000px){
+            padding: 25px;
+            transform: scale(1);
+            padding-left: 0px;
+         }
+    }
+    
+    .movie__overview__sub__detailes{
+        @include displayFlex(row, unset , center);
+        width: 100%;
+    
+        div{
+            padding-right: 10px;
+        }
+    }
+}
+
+

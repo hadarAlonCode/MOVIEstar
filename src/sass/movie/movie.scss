@@ -11,7 +11,7 @@
     cursor: pointer;
     filter: grayscale(0%);
     border-radius: 5px;
-    margin: 20px;
+    margin: 15px;
     background-repeat: no-repeat;
     transition: 0.5s;
 
@@ -128,3 +128,7 @@ img{
 }
 
 
+.flex__mov{
+    // flex: 1 0 21%; /* explanation below */
+    // flex: 1 1 25%;
+}

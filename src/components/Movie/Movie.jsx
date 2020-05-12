@@ -12,8 +12,10 @@ const Movie = props => {
     const {poster_path , vote_average, title, id } = props.movie
     const {show_movie_data_by_id, movieDataToggle} = props
     let show = show_movie_data_by_id === id ? true : false
+
+    
     return (
-        <div>
+        <div className="flex__mov">
             <div 
               onClick={()=>movieDataToggle(id)}
               className={ "movie__container movie__img__loader"}>
@@ -26,10 +28,8 @@ const Movie = props => {
 
             </div>
                
-            {/* { show_movie_data_by_id === id ?  */}
             <MoviePopup show={show} closePopUp={()=>movieDataToggle(id)} data={props.movie} /> 
-            {/* :
-            null} */}
+            
      </div>
     );
 };
