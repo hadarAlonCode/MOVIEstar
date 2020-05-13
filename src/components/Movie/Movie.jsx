@@ -24,13 +24,13 @@ const Movie = props => {
                 <div className="movie__hover">
                     <div className="movie__title">{title}</div>
                 </div>
-                {/* <Fade > */}
+                <Fade >
                     {poster_path ?
                        <img src={ORIGINAL_IMG_PATH+poster_path} alt="movie" />
                         :
                         <img src={movie_icon} alt="movie" />
                     }
-                {/* </Fade> */}
+                </Fade>
 
             </div>
                
