@@ -69,77 +69,101 @@ class Movie extends Component {
 
     }
 
+     getPositionAtCenter =(element)=> {
+        const {top, left, width, height} = element.getBoundingClientRect();
+        return {
+          x: left + width / 2,
+          y: top + height / 2
+        };
+      }
+
+
+      getDistanceforAnimation =()=>{
+        const { place} = this.props
+
+        let left_elm = document.getElementById(`${place-1}`)
+        let right_elm = document.getElementById(`${place+1}`)
+        let element = document.getElementById(`${place}`)
+
+        const distance_right = this.getDistanceBetweenElements(element,right_elm);
+        const distance_left = this.getDistanceBetweenElements(element,left_elm);
+
+        return {distance_right,distance_left }
+      }
+
+       getDistanceBetweenElements = (a, b) =>{
+        const aPosition = this.getPositionAtCenter(a);
+        const bPosition = this.getPositionAtCenter(b);
+      
+        return Math.hypot(aPosition.x - bPosition.x, aPosition.y - bPosition.y);  
+      }
 
      onHover =()=>{
         const { place} = this.props
-        
+
+        let element = document.getElementById(`${place}`)
+        element.style.transform = "scale(1.25)"
+
+
         if(window.innerWidth < 710){
             return
         }
 
-        let element = document.getElementById(`${place}`)
-        let left_side = element.getBoundingClientRect().left
-        
-        if(window.innerWidth < 905){
-            //left
-            if(left_side > 230){
-                document.getElementById(`${place-1}`).style.transform = "rotateY(-40deg)"  
-            }
-            //right
-            if(left_side < 380){
-                document.getElementById(`${place+1}`).style.transform = "rotateY(40deg)"
-            }
-        }else{
-            //left
-            if(left_side > 300){
-                document.getElementById(`${place-1}`).style.transform = "rotateY(-40deg)"  
-            }
-            //right
-            if(left_side < 690){
-                document.getElementById(`${place+1}`).style.transform = "rotateY(40deg)"
-            }
+        if(place === 0){
+            document.getElementById(`${place+1}`).style.transform = "rotateY(40deg)"
+            return
         }
 
-        element.style.transform = "scale(1.25)"
+        const distance_obj =  this.getDistanceforAnimation()
+
+ 
+
+        if(distance_obj.distance_left < 300){
+            document.getElementById(`${place-1}`).style.transform = "rotateY(-40deg)"   
+        }
+
+        if(distance_obj.distance_right < 300){
+            document.getElementById(`${place+1}`).style.transform = "rotateY(40deg)"
+        }
+
+        
            
      }
 
 
+
+
      onLeaveHover=()=>{
         const { place} = this.props
+        let element = document.getElementById(`${place}`)
 
+        element.style.transform = "scale(1)"
         if(window.innerWidth < 710){
             return
         }
 
-        let element = document.getElementById(`${place}`)
-        element.style.transform = "scale(1)"
-        let left_side = element.getBoundingClientRect().left
-      
-        if(window.innerWidth < 905){
-
-            //left
-            if(left_side > 230){
-                document.getElementById(`${place-1}`).style.transform = "rotateY(0deg)"
-            }
-            //right
-            if(left_side < 380){ 
-                document.getElementById(`${place+1}`).style.transform = "rotateY(0deg)"
-            }
-          
-        }else{
-            //left
-            if(left_side > 300){
-                document.getElementById(`${place-1}`).style.transform = "rotateY(0deg)"
-            }
-            //right
-            if(left_side < 690){ 
-                document.getElementById(`${place+1}`).style.transform = "rotateY(0deg)"
-            }
+        if(place === 0){
+            document.getElementById(`${place+1}`).style.transform = "rotateY(0deg)"
+            return
         }
+
+        const distance_obj =  this.getDistanceforAnimation()
+
+        let left_side = element.getBoundingClientRect().left
+        console.log(left_side, "left_side")
+        console.log(window.innerWidth, "window.innerWidth")
+
+        if(distance_obj.distance_left < 300){
+            document.getElementById(`${place-1}`).style.transform = "rotateY(0deg)"   
+        }
+
+        if(distance_obj.distance_right < 300){
+            document.getElementById(`${place+1}`).style.transform = "rotateY(0deg)"
+        }  
      }
 
 
+     
     render() {
         console.log("movie")
         const {show_movie_data_by_id, movieDataToggle , movie, place} = this.props
