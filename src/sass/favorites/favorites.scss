@@ -1,6 +1,11 @@
 .favorites__container{
     padding-top: 60px;
     height: calc(100vh - 70px);
+
+    .slider__title__container{
+        background: linear-gradient(to top,#000000f1, #141414);
+        height: 150px;
+    }
 }
 
 .favorites__movies__container{

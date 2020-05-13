@@ -4,10 +4,9 @@ import NavBar from './components/NavBar/NavBar';
 import Catalog from './components/Catalog/Catalog';
 import MoviePage from './components/MoviePage/MoviePage';
 import Favorites from './components/Favorites/Favorites';
-import Footer from './components/Footer/Footer';
-
 
 function App() {
+
   return (
     <Router>
         <div className="main__container">

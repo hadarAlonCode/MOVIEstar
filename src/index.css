@@ -95,6 +95,9 @@ input {
 
 *::-webkit-scrollbar {
   width: 7px; }
+  @media screen and (max-width: 501px) {
+    *::-webkit-scrollbar {
+      width: 0px; } }
 
 /* Track */
 *::-webkit-scrollbar-track {
@@ -137,7 +140,11 @@ a {
 
 .slider__title__container {
   padding-left: 41px;
-  margin-bottom: 5px; }
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: unset; }
   .slider__title__container h2 {
     margin-bottom: 5px;
     font-size: 35px; }
@@ -164,7 +171,8 @@ nav {
       margin-right: 20px; }
   nav .nav__btn {
     margin-right: 20px;
-    border: 1px solid white; }
+    border: 1px solid white;
+    background: transparent; }
 
 .catalog__container {
   margin-top: 60px;
@@ -201,8 +209,8 @@ nav {
   transition: 0.5s; }
   @media screen and (max-width: 500px) {
     .movie__container {
-      width: 95px;
-      height: 150px; } }
+      width: 110px;
+      height: 170px; } }
   .movie__container .movie__hover {
     opacity: 0;
     transition: 0.5s;
@@ -231,7 +239,7 @@ nav {
       transform-origin: bottom; }
       @media screen and (max-width: 500px) {
         .movie__container .movie__hover .movie__title {
-          width: 95px;
+          width: 100%;
           font-size: 10px;
           padding: 5px; } }
     .movie__container .movie__hover i {
@@ -407,6 +415,7 @@ nav {
       width: 50px; } }
 
 .movie__page__container {
+  overflow-x: hidden;
   min-height: 100vh; }
   .movie__page__container .main__popup__container {
     position: unset;
@@ -446,7 +455,8 @@ nav {
     background-color: transparent;
     color: rgba(255, 255, 255, 0.452);
     font-size: 30px;
-    transition: 0.5s; }
+    transition: 0.5s;
+    touch-action: manipulation; }
     .slider__container button i:hover {
       color: white;
       transition: 0.5s; }
@@ -472,6 +482,9 @@ nav {
 .favorites__container {
   padding-top: 60px;
   height: calc(100vh - 70px); }
+  .favorites__container .slider__title__container {
+    background: linear-gradient(to top, #000000f1, #141414);
+    height: 150px; }
 
 .favorites__movies__container {
   display: flex;
@@ -526,7 +539,8 @@ nav {
     @media screen and (max-width: 501px) {
       .searchbar__container .search__icon {
         padding: 8px;
-        background-color: #ff0000; } }
+        background-color: #141414;
+        border: 1px solid; } }
   .searchbar__container input {
     color: black;
     height: 30px;
@@ -547,3 +561,55 @@ nav {
     transition: 0.4s;
     pointer-events: all;
     opacity: 1; }
+
+#scroll__icon {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  background-color: rgba(0, 0, 0, 0.466);
+  z-index: 30000;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  transition: 0.5s; }
+
+.scroll__icon--show {
+  opacity: 1;
+  transition: 0.5s; }
+
+.scroll__icon--hide {
+  opacity: 0;
+  transition: 0.5s;
+  pointer-events: none; }
+
+@keyframes bounceAlpha {
+  0% {
+    opacity: 1;
+    transform: translateY(0px) scale(1); }
+  23% {
+    opacity: 0;
+    transform: translateY(-3px) scale(0.9); }
+  26% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.9); }
+  55% {
+    opacity: 1;
+    transform: translateY(0px) scale(1); } }
+
+#scroll__icon:hover .arrow {
+  animation-name: bounceAlpha;
+  animation-duration: 1.4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; }
+
+#scroll__icon:hover .arrow.primera {
+  animation-name: bounceAlpha;
+  animation-duration: 1.4s;
+  animation-delay: 0.2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; }

@@ -116,6 +116,9 @@ input {
 
   *::-webkit-scrollbar {
     width: 7px;
+    @include mediaMaxWidth(501px){
+      width: 0px;
+     }
   }
   
   /* Track */
@@ -128,6 +131,8 @@ input {
   *::-webkit-scrollbar-thumb {
     background: rgb(0, 0, 0);
     border-radius: 20px;
+
+    
   }
   
   /* Handle on hover */
@@ -174,6 +179,13 @@ input {
   .slider__title__container{
     padding-left: 41px;
     margin-bottom: 5px;
+    
+  
+
+    @include displayFlex(column, center, unset );
+
+
+
     h2 {
         margin-bottom: 5px;
         font-size: 35px;

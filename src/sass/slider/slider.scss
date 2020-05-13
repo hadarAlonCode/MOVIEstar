@@ -11,6 +11,7 @@
         color: rgba(255, 255, 255, 0.452);
         font-size: 30px;
         transition: 0.5s;
+        touch-action: manipulation;
         i:hover{
             color: white;
             transition: 0.5s;

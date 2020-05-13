@@ -6,6 +6,8 @@ import {getMoviesApi, getTopRatedApi, getMoviesSearch} from '../../functions/api
 import MoviePopup from '../MoviePopup/MoviePopup';
 import Footer from '../Footer/Footer';
 import SearchBar from '../SearchBar/SearchBar';
+import ScrollTopIcon from '../ScrollTopIcon/ScrollTopIcon';
+import { ScrollToTopMovieCatalog } from '../../functions/scroll';
 
 const Catalog = props => {
 
@@ -18,6 +20,7 @@ const Catalog = props => {
 
     const [search_toggle, setSearchToggle] = useState(false)
     const [search_keyword, setSearchKeyword] = useState("")
+    const [first_load, setFirstLoad] = useState(true)
 
 
     useEffect(() => {
@@ -26,6 +29,33 @@ const Catalog = props => {
         getTopRated()
         
       }, []);
+
+
+
+      useEffect(() => {
+        console.log('useEffect')
+    
+        
+        let scroll_icon = document.getElementById("scroll__icon");
+        let movie_catalog = document.getElementById("movies__scroll__container");
+        if(scroll_icon && movie_catalog && first_load ){
+    
+          let myScrollFunc = function() {
+            let y = movie_catalog.scrollTop;
+            console.log(y)
+            if (y >= 500) {
+              scroll_icon.className = "scroll__icon--show"
+            } else {
+              scroll_icon.className = "scroll__icon--hide"
+            }
+            };
+          
+            movie_catalog.addEventListener("scroll", myScrollFunc);
+            setFirstLoad(false)
+        }
+        
+        
+      } );
 
 
 
@@ -129,7 +159,7 @@ const Catalog = props => {
 
                 
                 
-                <div className="movies__scroll__container" onScroll={()=>onScroll()}>
+                <div id="movies__scroll__container" className="movies__scroll__container" onScroll={()=>onScroll()}>
                 <InfiniteScroll
                             className="movies__container"
                             id="movies-scroll"
@@ -165,9 +195,8 @@ const Catalog = props => {
                 </div>
 
                 
-
-                
-
+                <ScrollTopIcon scrollTo={ScrollToTopMovieCatalog}/>
+    
       
             </div>
             <Footer />

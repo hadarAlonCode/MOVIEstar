@@ -1,0 +1,93 @@
+#scroll__icon{
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    background-color: rgba(0, 0, 0, 0.466);
+    z-index: 30000;
+    cursor: pointer;
+    @include displayFlex(column, center, center);
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    transition: 0.5s;
+}
+
+.scroll__icon--show{
+    opacity: 1;
+    transition: 0.5s;
+    
+}
+
+.scroll__icon--hide{
+    opacity: 0;
+    transition: 0.5s;
+    pointer-events: none;
+    
+}
+
+
+// @keyframes move-down {
+//     25% {opacity: 1;}
+//     33% {
+//         opacity: 1;
+//         transform: translateY(30px);
+//     }
+//     67% {
+//         opacity: 1;
+//         transform: translateY(40px);
+//     }
+//     100% {
+//         opacity: 0;
+//         transform: translateY(55px) scale3d(.5,.5,.5);
+//     }
+// }
+
+// .arrow__one{
+//     animation: move-down 2s ease-out 1s infinite;
+// }
+
+// .arrow__two{
+//     animation: move-down 2s ease-out 2s infinite;
+// }
+
+
+@keyframes bounceAlpha {
+    0% {opacity: 1; transform: translateY(0px) scale(1);}
+    23%{opacity: 0; transform:translateY(-3px) scale(0.9);}
+    26%{opacity: 0; transform:translateY(10px) scale(0.9);}
+    55% {opacity: 1; transform: translateY(0px) scale(1);}
+  }
+
+  
+//   .bounceAlpha {
+//     animation-name: bounceAlpha;
+//     animation-duration:1.4s;
+//     animation-iteration-count:infinite;
+//     animation-timing-function:linear;
+// }
+
+// .arrow.primera.bounceAlpha {
+//     animation-name: bounceAlpha;
+//     animation-duration:1.4s;
+//     animation-delay:0.2s;
+//     animation-iteration-count:infinite;
+//     animation-timing-function:linear;
+// }
+
+#scroll__icon:hover .arrow{
+    animation-name: bounceAlpha;
+    animation-duration:1.4s;
+    animation-iteration-count:infinite;
+    animation-timing-function:linear;
+}
+#scroll__icon:hover .arrow.primera{
+    animation-name: bounceAlpha;
+    animation-duration:1.4s;
+    animation-delay:0.2s;
+    animation-iteration-count:infinite;
+    animation-timing-function:linear;
+}
+
+
+
+

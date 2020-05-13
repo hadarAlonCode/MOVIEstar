@@ -4,7 +4,6 @@ import Zoom from 'react-reveal/Zoom';
 import Flip from 'react-reveal/Flip';
 import Slide from 'react-reveal/Slide';
 import { ORIGINAL_IMG_PATH } from '../../tools/routes';
-
 import star from "../../images/star_w.png"
 import star_g from "../../images/star_g.png"
 import top_rated from "../../images/topp.png"
@@ -12,16 +11,14 @@ import top_rated from "../../images/topp.png"
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import ReactPlayer from 'react-player'
 import * as moment from 'moment';
+import Youtube from '../Youtube/Youtube';
 
 
 const MoviePopup = props => {
     const { closePopUp, data ,show ,trailer , isMoviePage , isMainBanner , addMovieToFavirites } = props
-
     const { release_date ,backdrop_path, overview , title , vote_average , id ,adult , genres}  = data
     const [favorite, setFavorite] = useState([])
 
-
-    // localStorage.removeItem('blockBaster_favorites')
 
     useEffect(() => {
 
@@ -35,7 +32,7 @@ const MoviePopup = props => {
             setFavorite(favorites_storage)
           }
 
-      });
+      }, []);
 
 
 
@@ -82,7 +79,14 @@ const MoviePopup = props => {
                         <div onClick={() => closePopUp()} className="exit__popup"><i className="fas fa-times"></i></div>
                         }
 
-                        <div><img className='top__rated__icon'  src={top_rated} alt="top rated"  /></div>
+                        
+                        <div>
+                        <Fade dely={3000} right duration when={show}>
+                            <img className='top__rated__icon'  src={top_rated} alt="top rated"  />
+                            </Fade>
+                        </div>
+                       
+                    {/*=== popup details: */}
 
                         <div className="movie__overview">
 
@@ -101,6 +105,9 @@ const MoviePopup = props => {
                                         </div>
                                     : null}
 
+
+                    {/*=== popup details  - stars: */}
+
                                 <div className="stars__container">
                                     {show ? 
                                         [1,2,3,4,5,6,7,8,9,10].map(num => {
@@ -114,56 +121,37 @@ const MoviePopup = props => {
                                     }
                                 </div>
 
+                    {/*=== popup details  - description: */}
+
                                 <div className="overview">{overview}</div>
+                               
+                    {/*=== popup details  - icons: */}
+
                                 <div className="icons">
-                                {/* favorites_storage.includes(id) */}
-                                {favorite.find(m=>m.id===id) ?
-                                    <button 
-                                    onClick={()=>removeFromFavoriteStorage(data)} 
+                                    {favorite.find(m=>m.id===id) ?
+                                        <button 
+                                        onClick={()=>removeFromFavoriteStorage(data)} 
+                                            className="btn">
+                                            My list <i className="fas fa-check"></i>
+                                        </button>
+
+                                        :
+                                                                
+                                        <button 
+                                        onClick={()=>addToFavoriteStorage(data)} 
                                         className="btn">
-                                        My list <i className="fas fa-check"></i>
-                                    </button>
-
-                                    :
-                                                              
-                                    <button 
-                                    onClick={()=>addToFavoriteStorage(data)} 
-                                    className="btn">
-                                        My list <i className="fas fa-plus"></i>
-                                    </button>
-                                }
-                                
-
-
+                                            My list <i className="fas fa-plus"></i>
+                                        </button>
+                                    }
+                                    
                                     {isMoviePage ? null : <Link to= {`/movie/${id}`}><button className="btn"> More info<i className="fas fa-info-circle"></i></button></Link> }
                                 </div>
                             </div>
 
+                    {/*=== popup details  - trailer - movie page: */}
+
                             {trailer ?
-                                <div className="trailer">
-                                    <ReactPlayer 
-                                    url={`https://www.youtube.com/watch?v=${trailer.key}`} 
-                                    class ="trailer__player"
-                                    // playIcon
-                                    playing
-                                    // width="350px"
-                                    // height="198px"
-                                    width="100%"
-                                    height="100%"
-                                    controls={true} 
-                                    muted={true}
-                                    config={{
-                                        youtube:{
-                                            playerVars: { 
-                                                autoplay: 0, 
-                                                playsinline: 0, 
-                                                showinfo: 0, 
-                                                rel: 0, 
-                                              }
-                                          }
-                                        }}
-                                    />
-                                </div> 
+                                <Youtube video_key={trailer.key} />
                                 : null
                             }
                         </div>
