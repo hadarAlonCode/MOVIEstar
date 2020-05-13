@@ -15,7 +15,7 @@ import Youtube from '../Youtube/Youtube';
 
 
 const MoviePopup = props => {
-    const { closePopUp, data ,show ,trailer , isMoviePage , isMainBanner , addMovieToFavirites } = props
+    const { closePopUp, data ,show ,trailer , isMoviePage , isMainBanner } = props
     const { release_date ,backdrop_path, overview , title , vote_average , id ,adult , genres}  = data
     const [favorite, setFavorite] = useState([])
 
