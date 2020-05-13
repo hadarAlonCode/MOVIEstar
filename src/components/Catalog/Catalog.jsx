@@ -24,7 +24,7 @@ const Catalog = props => {
 
 
     useEffect(() => {
-        console.log('useEffect')
+       
         getMoviesFirstTime()
         getTopRated()
         
@@ -33,16 +33,14 @@ const Catalog = props => {
 
 
       useEffect(() => {
-        console.log('useEffect')
-    
-        
+       
         let scroll_icon = document.getElementById("scroll__icon");
         let movie_catalog = document.getElementById("movies__scroll__container");
         if(scroll_icon && movie_catalog && first_load ){
     
           let myScrollFunc = function() {
             let y = movie_catalog.scrollTop;
-            console.log(y)
+           
             if (y >= 500) {
               scroll_icon.className = "scroll__icon--show"
             } else {
