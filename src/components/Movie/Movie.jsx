@@ -60,7 +60,8 @@ class Movie extends Component {
     shouldComponentUpdate(nextProps, nextState) {
         const {show_movie_data_by_id, movieDataToggle , movie} = this.props
 
-        if(JSON.stringify(movie) !== JSON.stringify(nextProps.movie) ){
+        if(JSON.stringify(movie) !== JSON.stringify(nextProps.movie) 
+           || show_movie_data_by_id !== nextProps.show_movie_data_by_id){
             return true
         }else{
             return false
