@@ -108,14 +108,16 @@ const Catalog = props => {
         if(movies_res.ok &&  movies_res.result.length > 0){
             let copy_movies = JSON.parse(JSON.stringify(movies))
             const new_movies = copy_movies.concat(movies_res.result);
-            setMovies(new_movies)
-            setScrollMore(true)
+
+            setTimeout(function(){ 
+                setMovies(new_movies)
+             setScrollMore(true)
             setPage(page+1)
             setLoading(false) 
-            if(page == 10){
-                setScrollMore(false)
 
-            }
+            }, 1000);
+
+           
         } 
     }
 
