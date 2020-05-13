@@ -110,14 +110,12 @@ const Catalog = props => {
             const new_movies = copy_movies.concat(movies_res.result);
 
             setTimeout(function(){ 
-                setMovies(new_movies)
-             setScrollMore(true)
+            setMovies(new_movies)
+            setScrollMore(true)
             setPage(page+1)
             setLoading(false) 
 
             }, 1000);
-
-           
         } 
     }
 

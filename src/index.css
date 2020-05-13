@@ -651,25 +651,6 @@ nav {
   animation-iteration-count: infinite;
   animation-timing-function: linear; }
 
-/* 3 DOT LOADER */
-.loader__conatiner {
-  width: 100vw;
-  padding: 20px;
-  margin-bottom: 80px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin: auto; }
-
-@-webkit-keyframes grow {
-  0%, 40%, 100% {
-    -webkit-transform: scale(0);
-    transform: scale(0); }
-  40% {
-    -webkit-transform: scale(1);
-    transform: scale(1); } }
-
 @keyframes grow {
   0%, 40%, 100% {
     -webkit-transform: scale(0);
@@ -677,6 +658,18 @@ nav {
   40% {
     -webkit-transform: scale(1);
     transform: scale(1); } }
+
+.loader__conatiner {
+  width: 100vw;
+  padding: 20px;
+  margin-bottom: 80px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  @media screen and (max-width: 500px) {
+    .loader__conatiner {
+      padding-bottom: 80px; } }
 
 .dot-loader {
   height: 20px;

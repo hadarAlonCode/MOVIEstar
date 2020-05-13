@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React , {useEffect , useState} from 'react';
 import ItemsCarousel from 'react-items-carousel';
-import { ORIGINAL_IMG_PATH } from '../../tools/routes';
+import { SMALL_IMG_PATH } from '../../tools/routes';
 import Fade from 'react-reveal/Fade';
 
 const Slider = props => {
@@ -92,7 +92,7 @@ const Slider = props => {
                 slider_data.map(item => {
                     return (
                         <div className="slider__item" style={{ height: 200 }}>
-                            <div style ={  { backgroundImage: "url("+ORIGINAL_IMG_PATH+ (item.profile_path ? item.profile_path : defult_pic) +")" } } className="slider__img__container"></div>
+                            <div style ={  { backgroundImage: "url("+SMALL_IMG_PATH+ (item.profile_path ? item.profile_path : defult_pic) +")" } } className="slider__img__container"></div>
                             <div>{item.name}</div>
                             {item.job ? <div>{item.job}</div> : null}
                         </div>

@@ -1,24 +1,4 @@
 
-/* 3 DOT LOADER */
-.loader__conatiner{
-  width:100vw; padding:20px; margin-bottom: 80px;
-
-  @include displayFlex(row, center , center);
-  margin: auto
-
-}
-
-
-@-webkit-keyframes grow {
-  0%, 40%, 100% {
-    -webkit-transform: scale(0);
-            transform: scale(0);
-  }
-  40% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-}
 @keyframes grow {
   0%, 40%, 100% {
     -webkit-transform: scale(0);
@@ -28,6 +8,22 @@
     -webkit-transform: scale(1);
             transform: scale(1);
   }
+}
+
+
+.loader__conatiner{
+  width:100vw; padding:20px; margin-bottom: 80px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+
+   @include mediaMaxWidth(500px){
+       padding-bottom: 80px;
+   };
+
 }
 
 
