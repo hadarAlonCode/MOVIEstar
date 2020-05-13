@@ -70,28 +70,104 @@ class Movie extends Component {
     }
 
 
+     onHover =()=>{
+        const { place} = this.props
+        
+        if(window.innerWidth < 710){
+            return
+        }
+
+        let element = document.getElementById(`${place}`)
+        let left_side = element.getBoundingClientRect().left
+        
+        if(window.innerWidth < 905){
+            //left
+            if(left_side > 230){
+                document.getElementById(`${place-1}`).style.transform = "rotateY(-40deg)"  
+            }
+            //right
+            if(left_side < 380){
+                document.getElementById(`${place+1}`).style.transform = "rotateY(40deg)"
+            }
+        }else{
+            //left
+            if(left_side > 300){
+                document.getElementById(`${place-1}`).style.transform = "rotateY(-40deg)"  
+            }
+            //right
+            if(left_side < 690){
+                document.getElementById(`${place+1}`).style.transform = "rotateY(40deg)"
+            }
+        }
+
+        element.style.transform = "scale(1.25)"
+           
+     }
+
+
+     onLeaveHover=()=>{
+        const { place} = this.props
+
+        if(window.innerWidth < 710){
+            return
+        }
+
+        let element = document.getElementById(`${place}`)
+        element.style.transform = "scale(1)"
+        let left_side = element.getBoundingClientRect().left
+      
+        if(window.innerWidth < 905){
+
+            //left
+            if(left_side > 230){
+                document.getElementById(`${place-1}`).style.transform = "rotateY(0deg)"
+            }
+            //right
+            if(left_side < 380){ 
+                document.getElementById(`${place+1}`).style.transform = "rotateY(0deg)"
+            }
+          
+        }else{
+            //left
+            if(left_side > 300){
+                document.getElementById(`${place-1}`).style.transform = "rotateY(0deg)"
+            }
+            //right
+            if(left_side < 690){ 
+                document.getElementById(`${place+1}`).style.transform = "rotateY(0deg)"
+            }
+        }
+     }
+
+
     render() {
         console.log("movie")
-        const {show_movie_data_by_id, movieDataToggle , movie} = this.props
+        const {show_movie_data_by_id, movieDataToggle , movie, place} = this.props
         const {poster_path , vote_average, title, id } = movie
         let show = show_movie_data_by_id === id ? true : false
 
         return (
-            <div className="flex__mov">
-            <div 
+            <div className="flex__mov" >
+            <div id={place}
               onClick={()=>movieDataToggle(id)}
+              onMouseOver={()=>this.onHover()}
+              onMouseLeave={()=>this.onLeaveHover()}
               className={ "movie__container movie__img__loader"}>
                 <div className="movie__hover">
                     <div className="movie__title">{title}</div>
                 </div>
 
                 
+                <Fade >
 
                     {poster_path ?
+                    
                        <img className="movie__img" src={SMALL_IMG_PATH+poster_path} alt="movie" />
                         :
                         <img className="movie__img" src={movie_icon} alt="movie" />
+                    
                     }
+                  </Fade>
                
 
             </div>

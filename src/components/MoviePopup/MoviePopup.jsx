@@ -81,8 +81,8 @@ const MoviePopup = props => {
 
                         
                         <div>
-                        <Fade dely={3000} right duration when={show}>
-                            <img className='top__rated__icon'  src={top_rated} alt="top rated"  />
+                            <Fade dely={3000} right duration when={show}>
+                               <img className='top__rated__icon'  src={top_rated} alt="top rated"  />
                             </Fade>
                         </div>
                        

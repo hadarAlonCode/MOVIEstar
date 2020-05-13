@@ -192,8 +192,8 @@ const Catalog = props => {
 
                             {/* movies */}
                             
-                                {movies.map(movie => {
-                                    return <Movie show_movie_data_by_id={show_movie_data_by_id} movieDataToggle={movieDataToggle} movie={movie} />
+                                {movies.map(( movie, i) => {
+                                    return <Movie place={i} key={movie.id} show_movie_data_by_id={show_movie_data_by_id} movieDataToggle={movieDataToggle} movie={movie} />
                                 })}
 
                                 { is_loading ? <Loader /> : null }
