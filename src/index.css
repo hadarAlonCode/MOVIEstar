@@ -282,7 +282,8 @@ nav {
 
 .movie__img__loader {
   background: linear-gradient(#ffffff3a, #ffffff00);
-  position: relative; }
+  position: relative;
+  animation: fade-in 0.5s ease-in; }
   .movie__img__loader img {
     position: absolute;
     top: 0;
@@ -526,6 +527,10 @@ nav {
   bottom: 0; }
   .footer__container img {
     width: 50px; }
+  .footer__container .db__logo {
+    width: 200px;
+    position: absolute;
+    right: 20px; }
 
 .searchbar__container {
   display: flex;

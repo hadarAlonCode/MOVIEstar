@@ -121,6 +121,8 @@
 .movie__img__loader{
     background: linear-gradient(#ffffff3a, #ffffff00);
      position: relative;
+     animation: fade-in 0.5s ease-in ;
+
     img{
         position: absolute;
         top: 0;
@@ -136,6 +138,8 @@
     0%   { opacity: 0; }
     100% { opacity: 1; }
   }
+
+
 
 
 .movie__img{
