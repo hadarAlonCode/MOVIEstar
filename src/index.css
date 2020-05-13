@@ -513,6 +513,9 @@ nav {
   padding: 20px; }
   .favorites__msg img {
     width: 450px; }
+    @media screen and (max-width: 500px) {
+      .favorites__msg img {
+        width: 250px; } }
 
 .footer__container {
   height: 70px;
@@ -528,9 +531,12 @@ nav {
   .footer__container img {
     width: 50px; }
   .footer__container .db__logo {
-    width: 200px;
+    width: 150px;
     position: absolute;
     right: 20px; }
+    @media screen and (max-width: 500px) {
+      .footer__container .db__logo {
+        width: 80px; } }
 
 .searchbar__container {
   display: flex;
@@ -644,3 +650,48 @@ nav {
   animation-delay: 0.2s;
   animation-iteration-count: infinite;
   animation-timing-function: linear; }
+
+/* 3 DOT LOADER */
+.loader__conatiner {
+  width: 100vw;
+  padding: 20px;
+  margin-bottom: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: auto; }
+
+@-webkit-keyframes grow {
+  0%, 40%, 100% {
+    -webkit-transform: scale(0);
+    transform: scale(0); }
+  40% {
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
+
+@keyframes grow {
+  0%, 40%, 100% {
+    -webkit-transform: scale(0);
+    transform: scale(0); }
+  40% {
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
+
+.dot-loader {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: #f44336;
+  position: relative;
+  -webkit-animation: 1.2s grow ease-in-out infinite;
+  animation: 1.2s grow ease-in-out infinite; }
+
+.dot-loader--2 {
+  -webkit-animation: 1.2s grow ease-in-out infinite 0.15555s;
+  animation: 1.2s grow ease-in-out infinite 0.15555s;
+  margin: 0 20px; }
+
+.dot-loader--3 {
+  -webkit-animation: 1.2s grow ease-in-out infinite 0.3s;
+  animation: 1.2s grow ease-in-out infinite 0.3s; }

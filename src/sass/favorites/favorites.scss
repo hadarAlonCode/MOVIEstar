@@ -27,5 +27,10 @@
     padding: 20px;
     img{
         width: 450px;
+
+        @include mediaMaxWidth(500px){
+            width: 250px;
+           
+         }
     }
 }

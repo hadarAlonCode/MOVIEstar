@@ -6,6 +6,8 @@ import {getMoviesApi, getTopRatedApi, getMoviesSearch} from '../../functions/api
 import MoviePopup from '../MoviePopup/MoviePopup';
 import Footer from '../Footer/Footer';
 import SearchBar from '../SearchBar/SearchBar';
+import Loader from '../Loader/Loader';
+
 import ScrollTopIcon from '../ScrollTopIcon/ScrollTopIcon';
 import { ScrollToTopMovieCatalog } from '../../functions/scroll';
 
@@ -21,6 +23,7 @@ const Catalog = props => {
     const [search_toggle, setSearchToggle] = useState(false)
     const [search_keyword, setSearchKeyword] = useState("")
     const [first_load, setFirstLoad] = useState(true)
+    const [is_loading, setLoading] = useState(true)
 
 
     useEffect(() => {
@@ -64,7 +67,8 @@ const Catalog = props => {
 
         if(movies_res.ok &&  movies_res.result.length > 0){
             console.log(movies_res.result)
-            setTopRatedMovies(movies_res.result)      
+            setTopRatedMovies(movies_res.result)  
+              
         }
 
     }
@@ -74,14 +78,16 @@ const Catalog = props => {
         console.log('getMoviesFirstTime')
         setSearchToggle(false)
         setMovies([])
+        setLoading(true)
         let movies_res = await getMoviesApi(1)
 
         if(movies_res.ok &&  movies_res.result.length > 0){
             setMovies(movies_res.result)
             setPage(2)
+             
             
         }
-
+        setLoading(false)  
         setScrollMore(true) 
     }
 
@@ -90,7 +96,7 @@ const Catalog = props => {
     const getMovies = async ()=>{
         console.log(search_keyword ,"getMovies")
         setScrollMore(false)
-
+        setLoading(true)
         let movies_res
 
         if(search_toggle){
@@ -105,6 +111,7 @@ const Catalog = props => {
             setMovies(new_movies)
             setScrollMore(true)
             setPage(page+1)
+            setLoading(false) 
             if(page == 10){
                 setScrollMore(false)
 
@@ -137,6 +144,7 @@ const Catalog = props => {
 
      const searchMovie = async (keyword)=>{
         setMovies([])
+        setLoading(true)
         let movies_res = await getMoviesSearch(keyword, 1)
       
         console.log(movies_res)
@@ -145,7 +153,9 @@ const Catalog = props => {
             setMovies(movies_res.result)
             setPage(2)
             setSearchToggle(true)
+             
         }
+        setLoading(false)
      }
 
 
@@ -185,6 +195,8 @@ const Catalog = props => {
                                 {movies.map(movie => {
                                     return <Movie show_movie_data_by_id={show_movie_data_by_id} movieDataToggle={movieDataToggle} movie={movie} />
                                 })}
+
+                                { is_loading ? <Loader /> : null }
 
                
                                  

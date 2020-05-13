@@ -12,9 +12,14 @@
 
 
     .db__logo{
-        width: 200px;
+        width: 150px;
         position: absolute;
         right: 20px;
+
+        @include mediaMaxWidth(500px){
+            width: 80px;
+           
+         }
     }
 
 }
