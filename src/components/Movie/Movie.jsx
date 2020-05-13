@@ -14,7 +14,6 @@ const Movie = props => {
     const {poster_path , vote_average, title, id } = props.movie
     const {show_movie_data_by_id, movieDataToggle} = props
     let show = show_movie_data_by_id === id ? true : false
-
     
     return (
         <div className="flex__mov">
@@ -24,7 +23,8 @@ const Movie = props => {
                 <div className="movie__hover">
                     <div className="movie__title">{title}</div>
                 </div>
-                <Fade >
+
+                <Fade  >
                     {poster_path ?
                        <img src={ORIGINAL_IMG_PATH+poster_path} alt="movie" />
                         :

@@ -209,8 +209,8 @@ nav {
   transition: 0.5s; }
   @media screen and (max-width: 500px) {
     .movie__container {
-      width: 110px;
-      height: 170px; } }
+      width: 120px;
+      height: 180px; } }
   .movie__container .movie__hover {
     opacity: 0;
     transition: 0.5s;
@@ -577,6 +577,9 @@ nav {
   width: 45px;
   border-radius: 50%;
   transition: 0.5s; }
+  @media screen and (max-width: 500px) {
+    #scroll__icon {
+      bottom: 100px; } }
 
 .scroll__icon--show {
   opacity: 1;

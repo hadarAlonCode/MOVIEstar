@@ -18,8 +18,8 @@
   
 
     @include mediaMaxWidth(500px){
-        width: 110px;
-        height: 170px;
+        width: 120px;
+        height: 180px;
      }
 
     .movie__hover{
@@ -28,9 +28,7 @@
         z-index: 10;
         position: relative;
         @include displayFlex(column, flex-end, unset );
-        // align-items: flex-start;
         margin-top: auto;
-        // padding: 10px;
         height: 100%;
         width: 100%;
         overflow-y: hidden;
@@ -40,7 +38,6 @@
             color: rgb(255, 255, 255);
             text-align: center;
             font-weight: bold;
-            // background-color: rgba(255, 255, 255, 0.349);
             background: linear-gradient( #00000000, #000000c5);
             width: 100%;
             padding: 30px;
@@ -80,8 +77,6 @@
 
     &:hover {
         transform: scale(1.25);
-        // width: 250px;
-        // height: 350px;
         transition: 0.5;
         z-index: 1001;
 
@@ -90,13 +85,11 @@
             opacity: 1;
 
             .movie__title{
-               
-                // transform: scale(0.1);
                 object-position: top;
                 transform: translateY(0);
                 transition: all .3s;
                 transform-origin: bottom;
-                // font-size: 10px;
+
             }
             
             
@@ -109,7 +102,6 @@
 
 .selected__movie{
     width: 90vw;
-    // box-shadow: rgb(204, 204, 204) 3px 3px 10px 6px;
     height: 300px;
     position: relative;
     background-size: 100% 100%;
@@ -129,19 +121,14 @@
 .movie__img__loader{
     background: linear-gradient(#ffffff3a, #ffffff00);
      position: relative;
-img{
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 5px;
-    
-}
+    img{
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+        
+    }
 
 }
 
-
-.flex__mov{
-    // flex: 1 0 21%; /* explanation below */
-    // flex: 1 1 25%;
-}
