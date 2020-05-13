@@ -15,7 +15,7 @@
     justify-content: center;
     margin: auto;
     height: max-content;
-    min-height: 100vh;
+    min-height: calc(100vh - 285px);
     padding-top: 20px;
 
     .flex__mov{
