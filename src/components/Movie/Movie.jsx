@@ -123,21 +123,19 @@ class Movie extends Component {
               onMouseOver={()=>this.onHover()}
               onMouseLeave={()=>this.onLeaveHover()}
               className={ "movie__container movie__img__loader"}>
+              
                 <div className="movie__hover">
                     <div className="movie__title">{title}</div>
                 </div>
 
-                
-                <Fade >
-
+                <Fade>
                     {poster_path ?
                     
                        <img className="movie__img" src={SMALL_IMG_PATH+poster_path} alt="movie" />
                         :
                         <img className="movie__img" src={movie_icon} alt="movie" />
-                    
                     }
-                  </Fade>
+                </Fade>
                
 
             </div>
