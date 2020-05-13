@@ -110,7 +110,7 @@ class Movie extends Component {
         }
 
         if(place === 0){
-            document.getElementById(`${place+1}`).style.transform = "rotateY(40deg)"
+            document.getElementById(`${place+1}`).style.transform = "rotateY(30deg)"
             return
         }
 
@@ -119,11 +119,11 @@ class Movie extends Component {
  
 
         if(distance_obj.distance_left < 300){
-            document.getElementById(`${place-1}`).style.transform = "rotateY(-40deg)"   
+            document.getElementById(`${place-1}`).style.transform = "rotateY(-30deg)"   
         }
 
         if(distance_obj.distance_right < 300){
-            document.getElementById(`${place+1}`).style.transform = "rotateY(40deg)"
+            document.getElementById(`${place+1}`).style.transform = "rotateY(30deg)"
         }
 
         
