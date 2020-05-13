@@ -7,15 +7,34 @@ import Fade from 'react-reveal/Fade';
 const Slider = props => {
 
     const {slider_data, defult_pic, title} = props
-
-    // const [slider_data, setSliderData] = useState([1,2,3,4,5,6])
     const [activeItemIndex, setActiveItemIndex] = useState(0);
     const [number_of_cards, setnumberOfCards] = useState(0);
-
     const chevronWidth = 40;
-    const autoPlayDelay = 2000;
 
-    const changeNumber =(number)=>{
+   
+       useEffect(function() {
+           
+        if(slider_data.length > 0){
+
+            let number = slider_data.length > 7 ? 7 : slider_data.length
+            if(window.innerWidth < 400){
+                number = 2
+            }
+
+            setnumberOfCards(number)
+            changeNumber(number)
+            setActiveItemIndex(parseInt(slider_data.length/2))
+        
+            window.addEventListener('resize', function(event){
+                changeNumber(number)
+              });
+        }
+          
+       }, [slider_data]);
+
+
+       
+       const changeNumber =(number)=>{
         if(number > 3){
             if(window.innerWidth < 400){
                 if(number > 2 ){
@@ -39,28 +58,6 @@ const Slider = props => {
             }
         }
     }
-
-  
-
-       useEffect(function() {
-           
-        if(slider_data.length > 0){
-
-            let number = slider_data.length > 7 ? 7 : slider_data.length
-            if(window.innerWidth < 400){
-                number = 2
-            }
-
-            setnumberOfCards(number)
-            changeNumber(number)
-            setActiveItemIndex(parseInt(slider_data.length/2))
-        
-            window.addEventListener('resize', function(event){
-                changeNumber(number)
-              });
-        }
-          
-       }, [slider_data]);
 
 
 

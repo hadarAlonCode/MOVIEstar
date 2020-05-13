@@ -6,7 +6,6 @@ import Footer from '../Footer/Footer';
 import Slide from 'react-reveal/Slide';
 
 
-
 const Favorites = props => {
     const [favorites, setFavorites] = useState([])
     const [show_movie_data_by_id, setShowMovieDataId] = useState("")
@@ -30,7 +29,6 @@ const Favorites = props => {
         setShowMovieDataId(new_id)
 
     }
-
 
 
     return (

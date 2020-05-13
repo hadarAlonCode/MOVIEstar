@@ -16,10 +16,8 @@ const Catalog = props => {
     const [scroll_more, setScrollMore] = useState(false)
     const [movies, setMovies] = useState([])
     const [top_rated_movies, setTopRatedMovies] = useState([])
-
     const [page, setPage] = useState(1)
     const [show_movie_data_by_id, setShowMovieDataId] = useState("")
-
     const [search_toggle, setSearchToggle] = useState(false)
     const [search_keyword, setSearchKeyword] = useState("")
     const [first_load, setFirstLoad] = useState(true)
@@ -61,7 +59,7 @@ const Catalog = props => {
 
 
       const getTopRated = async ()=>{
-        console.log('getTopRated')
+        
         let movies_res = await getTopRatedApi()
         
 
@@ -75,7 +73,7 @@ const Catalog = props => {
 
 
     const getMoviesFirstTime= async ()=>{
-        console.log('getMoviesFirstTime')
+        
         setSearchToggle(false)
         setMovies([])
         setLoading(true)
@@ -83,18 +81,15 @@ const Catalog = props => {
 
         if(movies_res.ok &&  movies_res.result.length > 0){
             setMovies(movies_res.result)
-            setPage(2)
-             
-            
+            setPage(2)         
         }
+        
         setLoading(false)  
         setScrollMore(true) 
     }
 
 
-
     const getMovies = async ()=>{
-        console.log(search_keyword ,"getMovies")
         setScrollMore(false)
         setLoading(true)
         let movies_res
@@ -147,7 +142,6 @@ const Catalog = props => {
         setLoading(true)
         let movies_res = await getMoviesSearch(keyword, 1)
       
-        console.log(movies_res)
         if (movies_res.ok) {
             
             setMovies(movies_res.result)

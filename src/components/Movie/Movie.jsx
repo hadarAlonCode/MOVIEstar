@@ -1,62 +1,17 @@
 // @ts-nocheck
-// import React , {useState, useEffect} from 'react';
+import React, { Component } from 'react';
 import {SMALL_IMG_PATH} from '../../tools/routes'
 import Fade from 'react-reveal/Fade';
 import MoviePopup from '../MoviePopup/MoviePopup';
-
 import movie_icon from "../../images/movie.png"
 
-// const Movie = props => {
-
-//     const {poster_path , vote_average, title, id } = props.movie
-//     const {show_movie_data_by_id, movieDataToggle} = props
-//     let show = show_movie_data_by_id === id ? true : false
-//     console.log("movie")
-
-   
-
-
-//     return (
-//         <div className="flex__mov">
-//             <div 
-//               onClick={()=>movieDataToggle(id)}
-//               className={ "movie__container movie__img__loader"}>
-//                 <div className="movie__hover">
-//                     <div className="movie__title">{title}</div>
-//                 </div>
-
-//                 <Fade duration={1500} >
-//                     {poster_path ?
-//                        <img src={ORIGINAL_IMG_PATH+poster_path} alt="movie" />
-//                         :
-//                         <img src={movie_icon} alt="movie" />
-//                     }
-//                 </Fade>
-
-//             </div>
-               
-//             <MoviePopup show={show} closePopUp={()=>movieDataToggle(id)} data={props.movie} /> 
-            
-//      </div>
-//     );
-// };
-
-
-
-
-// export default React.memo(Movie) ;
-
-
-import React, { Component } from 'react';
 
 class Movie extends Component {
     constructor(props) {
         super(props);
 
     }
-
-
-   
+ 
     shouldComponentUpdate(nextProps, nextState) {
         const {show_movie_data_by_id, movieDataToggle , movie} = this.props
 
@@ -116,8 +71,6 @@ class Movie extends Component {
 
         const distance_obj =  this.getDistanceforAnimation()
 
- 
-
         if(distance_obj.distance_left < 300){
             document.getElementById(`${place-1}`).style.transform = "rotateY(-30deg)"   
         }
@@ -125,11 +78,8 @@ class Movie extends Component {
         if(distance_obj.distance_right < 300){
             document.getElementById(`${place+1}`).style.transform = "rotateY(30deg)"
         }
-
-        
-           
+     
      }
-
 
 
 
@@ -149,10 +99,6 @@ class Movie extends Component {
 
         const distance_obj =  this.getDistanceforAnimation()
 
-        let left_side = element.getBoundingClientRect().left
-        console.log(left_side, "left_side")
-        console.log(window.innerWidth, "window.innerWidth")
-
         if(distance_obj.distance_left < 300){
             document.getElementById(`${place-1}`).style.transform = "rotateY(0deg)"   
         }
@@ -165,7 +111,7 @@ class Movie extends Component {
 
      
     render() {
-        console.log("movie")
+        
         const {show_movie_data_by_id, movieDataToggle , movie, place} = this.props
         const {poster_path , vote_average, title, id } = movie
         let show = show_movie_data_by_id === id ? true : false

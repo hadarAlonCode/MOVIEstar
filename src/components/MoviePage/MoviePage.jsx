@@ -29,12 +29,11 @@ const MoviePage = props => {
        const getMovie = async (id)=>{
          let movie_res = await getMovieDataApi(id)
          
-         console.log(movie_res)
          if(movie_res.ok){
             setMovieData(movie_res.result.data)
             setShowMovie(true)
             let movie_trailer_obj = movie_res.result.trailer.length > 0 ? movie_res.result.trailer.find(t => t.site === "YouTube") : false
-            console.log(movie_trailer_obj)
+
             setMovieTrailer(movie_trailer_obj)
             setMovieCrew(movie_res.result.crew)
             setMovieCast(movie_res.result.cast)
@@ -48,8 +47,6 @@ const MoviePage = props => {
 
        }
 
-
-    //    closePopUp={}/ back to 
 
     return (
         <div className="movie__page__container">
