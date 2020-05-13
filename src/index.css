@@ -290,6 +290,16 @@ nav {
     height: 100%;
     border-radius: 5px; }
 
+@keyframes fade-in {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+.movie__img {
+  opacity: 1;
+  animation: fade-in 2s ease-in; }
+
 .main__popup__container {
   position: fixed;
   width: 100vw;

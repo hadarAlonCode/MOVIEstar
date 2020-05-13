@@ -85,13 +85,14 @@ class Movie extends Component {
                     <div className="movie__title">{title}</div>
                 </div>
 
-                <Fade duration={1500} >
+                
+
                     {poster_path ?
-                       <img src={ORIGINAL_IMG_PATH+poster_path} alt="movie" />
+                       <img className="movie__img" src={ORIGINAL_IMG_PATH+poster_path} alt="movie" />
                         :
-                        <img src={movie_icon} alt="movie" />
+                        <img className="movie__img" src={movie_icon} alt="movie" />
                     }
-                </Fade>
+               
 
             </div>
                
