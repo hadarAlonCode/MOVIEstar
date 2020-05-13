@@ -1,6 +1,6 @@
 #scroll__icon{
     position: absolute;
-    bottom: 30px;
+    bottom: 60px;
     right: 30px;
     background-color: rgba(0, 0, 0, 0.466);
     z-index: 30000;
@@ -59,20 +59,20 @@
   }
 
   
-//   .bounceAlpha {
-//     animation-name: bounceAlpha;
-//     animation-duration:1.4s;
-//     animation-iteration-count:infinite;
-//     animation-timing-function:linear;
-// }
+  .bounceAlpha {
+    animation-name: bounceAlpha;
+    animation-duration:1.4s;
+    animation-iteration-count:infinite;
+    animation-timing-function:linear;
+}
 
-// .arrow.primera.bounceAlpha {
-//     animation-name: bounceAlpha;
-//     animation-duration:1.4s;
-//     animation-delay:0.2s;
-//     animation-iteration-count:infinite;
-//     animation-timing-function:linear;
-// }
+.arrow.primera.bounceAlpha {
+    animation-name: bounceAlpha;
+    animation-duration:1.4s;
+    animation-delay:0.2s;
+    animation-iteration-count:infinite;
+    animation-timing-function:linear;
+}
 
 #scroll__icon:hover .arrow{
     animation-name: bounceAlpha;
