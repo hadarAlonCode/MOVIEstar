@@ -207,10 +207,6 @@ nav {
   margin: 15px;
   background-repeat: no-repeat;
   transition: 0.5s; }
-  @media screen and (max-width: 500px) {
-    .movie__container {
-      width: 120px;
-      height: 180px; } }
   .movie__container .movie__hover {
     opacity: 0;
     transition: 0.5s;
@@ -239,9 +235,7 @@ nav {
       transform-origin: bottom; }
       @media screen and (max-width: 500px) {
         .movie__container .movie__hover .movie__title {
-          width: 100%;
-          font-size: 10px;
-          padding: 5px; } }
+          width: 100%; } }
     .movie__container .movie__hover i {
       color: #e9bb32bb;
       font-size: 38px;
