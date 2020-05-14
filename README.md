@@ -1,7 +1,6 @@
 ## MOVIEstar - Movies site
 
-https://blockbaster.netlify.app/
-
+https://moviestar-app.netlify.app/
 
 #### MOVIEstar screenshots
 ![alt text](src/images/Mac-movieStar.png)
