@@ -164,8 +164,11 @@
 
 //movie page 
 .movie__page__container{
+    @include displayFlex(column,unset, unset);
+
 overflow-x: hidden;
 min-height: 100vh;
+
 
 
     .main__popup__container{

@@ -414,6 +414,10 @@ nav {
       width: 50px; } }
 
 .movie__page__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: unset;
+  align-items: unset;
   overflow-x: hidden;
   min-height: 100vh; }
   .movie__page__container .main__popup__container {
@@ -513,7 +517,7 @@ nav {
   justify-content: center;
   align-items: center;
   width: 100vw;
-  margin-bottom: auto;
+  margin-top: auto;
   position: relative;
   bottom: 0; }
   .footer__container img {
