@@ -9,7 +9,6 @@
     position: relative;
     background-size: 100% 100%;
     cursor: pointer;
-    filter: grayscale(0%);
     border-radius: 5px;
     margin: 15px;
     background-repeat: no-repeat;
@@ -121,7 +120,7 @@
 .movie__img__loader{
     background: linear-gradient(#ffffff3a, #ffffff00);
      position: relative;
-     animation: fade-in 0.5s ease-in ;
+    //  animation: fade-in 0.5s ease-in ;
 
     img{
         position: absolute;

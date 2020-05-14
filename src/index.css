@@ -202,7 +202,6 @@ nav {
   position: relative;
   background-size: 100% 100%;
   cursor: pointer;
-  filter: grayscale(0%);
   border-radius: 5px;
   margin: 15px;
   background-repeat: no-repeat;
@@ -282,8 +281,7 @@ nav {
 
 .movie__img__loader {
   background: linear-gradient(#ffffff3a, #ffffff00);
-  position: relative;
-  animation: fade-in 0.5s ease-in; }
+  position: relative; }
   .movie__img__loader img {
     position: absolute;
     top: 0;
