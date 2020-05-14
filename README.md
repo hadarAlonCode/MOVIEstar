@@ -15,6 +15,7 @@ https://blockbaster.netlify.app/
 
 - React
 - Sass
+- The Movie DB Api - https://developers.themoviedb.org/
 
 
 
