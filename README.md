@@ -1,14 +1,11 @@
-## BlockBaster - Movies site
+## MOVIEstar - Movies site
 
 https://blockbaster.netlify.app/
 
 
-#### Catalog screenshot
-![alt text](src/images/main.png "Login Page screenshot")
-#### Movie Page screenshot
-![alt text](src/images/moviepage.png "Overview Page screenshot")
-#### My List screenshot
-![alt text](src/images/mylist.png "Contacts Page screenshot")
+#### MOVIEstar screenshots
+![alt text](src/images/Mac-movieStar.png)
+
 
 
 ### Built With:
