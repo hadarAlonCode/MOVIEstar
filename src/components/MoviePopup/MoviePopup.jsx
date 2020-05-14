@@ -80,11 +80,11 @@ const MoviePopup = props => {
                         }
 
                         
-                        <div>
+                        {/* <div>
                             <Fade dely={3000} right duration when={show}>
                                <img className='top__rated__icon'  src={top_rated} alt="top rated"  />
                             </Fade>
-                        </div>
+                        </div> */}
                        
                     {/*=== popup details: */}
 
