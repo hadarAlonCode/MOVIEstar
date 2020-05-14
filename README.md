@@ -13,7 +13,7 @@ https://blockbaster.netlify.app/
 
 ### Built With:
 
-- React
+- React & Hooks
 - Sass
 - The Movie DB Api - https://developers.themoviedb.org/
 
