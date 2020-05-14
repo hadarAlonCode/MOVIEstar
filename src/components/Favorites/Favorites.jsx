@@ -46,8 +46,10 @@ const Favorites = props => {
             <div className="favorites__movies__container">
 
                 {favorites.length > 0 ? 
-                    favorites.map(movie => {
+                    favorites.map((movie, i) => {
                         return <Movie 
+                        place={i}
+                        key={movie.id}
                         show_movie_data_by_id={show_movie_data_by_id}
                         movieDataToggle={movieDataToggle} movie={movie} />
                     }) :   

@@ -7,10 +7,7 @@ import movie_icon from "../../images/movie.png"
 
 
 class Movie extends Component {
-    constructor(props) {
-        super(props);
-
-    }
+  
  
     shouldComponentUpdate(nextProps, nextState) {
         const {show_movie_data_by_id, movieDataToggle , movie} = this.props
@@ -55,12 +52,12 @@ class Movie extends Component {
 
      onHover =()=>{
         const { place} = this.props
-
+        let is_favorite_page = window.location.pathname.split("/")[1]
         let element = document.getElementById(`${place}`)
         element.style.transform = "scale(1.25)"
 
 
-        if(window.innerWidth < 710){
+        if(window.innerWidth < 710 || is_favorite_page){
             return
         }
 
@@ -85,10 +82,12 @@ class Movie extends Component {
 
      onLeaveHover=()=>{
         const { place} = this.props
+        let is_favorite_page = window.location.pathname.split("/")[1]
+
         let element = document.getElementById(`${place}`)
 
         element.style.transform = "scale(1)"
-        if(window.innerWidth < 710){
+        if(window.innerWidth < 710 || is_favorite_page){
             return
         }
 
@@ -111,7 +110,9 @@ class Movie extends Component {
 
      
     render() {
-        
+       
+       
+
         const {show_movie_data_by_id, movieDataToggle , movie, place} = this.props
         const {poster_path , vote_average, title, id } = movie
         let show = show_movie_data_by_id === id ? true : false
